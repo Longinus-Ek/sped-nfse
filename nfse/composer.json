@@ -1,0 +1,21 @@
+{
+    "name": "yuon/nfse",
+    "description": "Pacote para emissão NFS-e!",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "yuon\\nfse\\": "nfse/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Érick Dias"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": ">=8.0",
+      "ext-curl": "*"
+    }
+}
