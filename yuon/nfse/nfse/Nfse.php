@@ -38,6 +38,7 @@ class Nfse extends DOMDocument
         $this->dom->formatOutput = false;
         //Cria a tag Nfse no escopo do xml
         $this->buildNfse();
+        $this->buildInfNfse();
 
     }
 
@@ -53,10 +54,25 @@ class Nfse extends DOMDocument
         return 'aaaa';
     }
 
-    private function buildNfse(stdClass $std) : \DOMElement{
+    private function buildNfse(stdClass $std) : \DOMElement
+    {
 
         $this->nfse = $this->dom->createElement('Nfse');
         $this->nfse->setAttribute('versao', $std->versao);
         return $this->nfse;
     }
+
+    private function buildInfNfse(stdClass $std) : \DOMElement
+    {
+        $infNfse = $this->dom->createElement('InfNfse');
+        $infNfse->setAttribute('Id', $std->Id);
+        $this->nfse->appendChild($infNfse); //Desenvolver uma função pra dar append de maneira diferente fazendo verificação se existe a stdClass e alimentando mensagem de erro!
+
+        return $this->nfse;
+    }
+
+
+
+
+
 }
