@@ -2,8 +2,9 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/nfse/nfse" isTestSource="false" packagePrefix="yuon\nfse\" />
-      <excludeFolder url="file://$MODULE_DIR$/nfse/vendor/composer" />
+      <sourceFolder url="file://$MODULE_DIR$/cu/nfse" isTestSource="false" packagePrefix="yuon\nfse\" />
+      <sourceFolder url="file://$MODULE_DIR$/yuon/nfse" isTestSource="false" packagePrefix="yuon" />
+      <excludeFolder url="file://$MODULE_DIR$/cu/vendor/composer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

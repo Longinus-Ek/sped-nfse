@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'yuon\\nfse\\' => array($baseDir . '/nfse'),
+    'NFSePHP\\NFSe\\' => array($baseDir . '/nfse'),
 );

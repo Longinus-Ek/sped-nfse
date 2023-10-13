@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInite292237737aaac4186a2e66980e3112d
 {
     public static $prefixLengthsPsr4 = array (
-        'y' => 
+        'N' => 
         array (
-            'yuon\\nfse\\' => 10,
+            'NFSePHP\\NFSe\\' => 13,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'yuon\\nfse\\' => 
+        'NFSePHP\\NFSe\\' => 
         array (
             0 => __DIR__ . '/../..' . '/nfse',
         ),

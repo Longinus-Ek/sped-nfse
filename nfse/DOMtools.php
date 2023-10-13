@@ -1,6 +1,6 @@
 <?php
 
-namespace yuon\nfse;
+namespace NFSePHP\NFSe;
 
 use DOMDocument;
 use DOMNode;
