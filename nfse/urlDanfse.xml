@@ -26,8 +26,8 @@
         <RR></RR>
         <SC>
             <BLUMENAU>
-                <HOM> http://wshomologacaoabrasf.simplissweb.com.br/ws_nfse/nfseservice.svc?wsdl</HOM>
-                <PROD> http://wsblumenau.simplissweb.com.br/nfseservice.svc?wsdl</PROD>
+                <HOM>http://wshomologacaoabrasf.simplissweb.com.br/ws_nfse/nfseservice.svc?wsdl</HOM>
+                <PROD>http://wsblumenau.simplissweb.com.br/nfseservice.svc?wsdl</PROD>
                     <LOTE>
                         <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/RecepcionarLoteRps</soapAction>
                         <CABECALHO>
