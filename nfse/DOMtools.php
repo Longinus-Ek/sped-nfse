@@ -123,22 +123,6 @@ class DOMtools extends \DOMDocument
     }
 
     /**
-     * getChave
-     * @param string $nodeName
-     * @return string
-     */
-    public function getChave($nodeName = 'infNFe')
-    {
-        $node = $this->getElementsByTagName($nodeName)->item(0);
-        if (!empty($node)) {
-            $chaveId = $node->getAttribute("Id");
-            $chave =  preg_replace('/[^0-9]/', '', $chaveId);
-            return $chave;
-        }
-        return '';
-    }
-
-    /**
      * addChild
      * Adiciona um elemento ao node xml passado como referencia
      * Serão inclusos erros na array $erros[] sempre que a tag for obrigatória e

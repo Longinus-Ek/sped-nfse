@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'yuon/nfse',
+        'name' => 'yuon/sped-nfse',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '5c7fb80d7aa3cb17cba3efc71eb13db9b9f049d4',
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'yuon/nfse' => array(
+        'yuon/sped-nfse' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '5c7fb80d7aa3cb17cba3efc71eb13db9b9f049d4',

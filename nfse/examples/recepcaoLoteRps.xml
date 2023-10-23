@@ -1,0 +1,103 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <nfse:RecepcionarLoteRpsRequest>
+            <nfseCabecMsg>
+                <cabecalho versao="2.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.abrasf.org.br/nfse.xsd">
+                    <versaoDados>2.03</versaoDados>
+                </cabecalho>
+            </nfseCabecMsg>
+            <nfseDadosMsg>
+                <EnviarLoteRpsEnvio xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.abrasf.org.br/nfse.xsd">
+                    <LoteRps Id="LT1" versao="2.03">
+                        <NumeroLote>9459887</NumeroLote>
+                        <CpfCnpj><Cnpj>21728376000197</Cnpj>
+                        </CpfCnpj><QuantidadeRps>1</QuantidadeRps>
+                        <ListaRps>
+                            <Rps>
+                                <InfDeclaracaoPrestacaoServico Id="I1">
+                                    <Rps Id="R1"> <IdentificacaoRps>
+                                        <Numero>9157727</Numero>
+                                        <Serie>E</Serie>
+                                        <Tipo>1</Tipo>
+                                    </IdentificacaoRps>
+                                        <DataEmissao>2019-10-10</DataEmissao>
+                                        <Status>1</Status>
+                                    </Rps>
+                                    <Competencia>2019-10-10</Competencia>
+                                    <Servico>
+                                        <Valores>
+                                            <ValorServicos>100</ValorServicos>
+                                        </Valores>
+                                        <IssRetido>2</IssRetido>
+                                        <ItemListaServico>01.01</ItemListaServico>
+                                        <CodigoCnae>1830003</CodigoCnae>
+                                        <CodigoTributacaoMunicipio>01.01</CodigoTributacaoMunicipio>
+                                        <Discriminacao>Teste</Discriminacao>
+                                        <CodigoMunicipio>3549102</CodigoMunicipio>
+                                        <ExigibilidadeISS>1</ExigibilidadeISS>
+                                    </Servico>
+                                    <Prestador>
+                                        <CpfCnpj>
+                                            <Cnpj>21728376000197</Cnpj>
+                                        </CpfCnpj>
+                                    </Prestador>
+                                    <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                                    <IncentivoFiscal>1</IncentivoFiscal>
+                                </InfDeclaracaoPrestacaoServico>
+                                <Signature>
+                                    <SignedInfo>
+                                        <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                                        <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                                        <Reference URI="#NFe42230821728376000197550011231231231271324758">
+                                            <Transforms>
+                                                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                                                <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                                            </Transforms>
+                                            <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                                            <DigestValue>YCYe5VTrhST1Jz8C1mBdyrnwdtc=</DigestValue>
+                                        </Reference>
+                                    </SignedInfo>
+                                    <SignatureValue>
+                                        aQU8oO2JPquU2Y2HYW1aLExKNw4eSMyK7b+s553DXBmAorUXp6VfsL37L7UrEgn2EaxIfMOsLnJEdoglC51BkXiGzvA4Q0srH9b4vX5iUaB5/8tSI0eY2ms8uSC456TKuwx8/FR8vlWMhXlXgiiKMiO8n33hjR2EP9Hju/a5/ZiLUg2m1GI1cc4OsVQJjq9d8la5zHCx4L+d+4axKliygfWMaRmbioI8TgCLyVyjNI4ADmgueQCOKDp9rEoTgT6E21rwIBTKusvy2NjONjsgxe5QIDAzQRF2N2wAegEH/yOUhHS/8XeqiD9CLYyBrNcEmSydawSlQjPDnb2miD1BIA==
+                                    </SignatureValue>
+                                    <KeyInfo>
+                                        <X509Data>
+                                            <X509Certificate>
+                                                MIIHNzCCBR+gAwIBAgIISTQjCBFZmBYwDQYJKoZIhvcNAQELBQAwWTELMAkGA1UEBhMCQlIxEzARBgNVBAoTCklDUC1CcmFzaWwxFTATBgNVBAsTDEFDIFNPTFVUSSB2NTEeMBwGA1UEAxMVQUMgU09MVVRJIE11bHRpcGxhIHY1MB4XDTIzMDgxMTE5NDgwMFoXDTI0MDgxMDE5NDgwMFowgd0xCzAJBgNVBAYTAkJSMRMwEQYDVQQKEwpJQ1AtQnJhc2lsMQswCQYDVQQIEwJTQzERMA8GA1UEBxMIQmx1bWVuYXUxHjAcBgNVBAsTFUFDIFNPTFVUSSBNdWx0aXBsYSB2NTEXMBUGA1UECxMOMjc2MTMwNzIwMDAxNjAxGTAXBgNVBAsTEFZpZGVvY29uZmVyZW5jaWExGjAYBgNVBAsTEUNlcnRpZmljYWRvIFBKIEExMSkwJwYDVQQDEyBDU1ggU09MVUNPRVMgTFREQToyMTcyODM3NjAwMDE5NzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALUEFlw5cLY13WGP54NdW6LwmARTr5wghZFMIiUjdD76gJKOqfhY4/549ixbSDt87yMPnfy4QgvRoqBpMbLYcZRmP/rRW/8/ONM64TSB6vpUJ/rhPMpyjM1vBysCZ7/8vnZHBNJ2tR34cCFmPu4rf4XyM1boP2YH6aIghQbt8Hi97UzCJfjPx6IcoJ9zgjHHNmR0/xLZRoEMSFjEJqB/3fHq1CxlZWBmAvMl3l2K4aE/H1pYbJ9lY0W6ZWMwQL1XXZ+owekl5dczdz56FQEnPNuCFb32p2tsZ3Jsxe48whjDyEPPIpows9xzGpXysqXiKUBD7XXpXO7xypT5xdbgGYkCAwEAAaOCAnwwggJ4MAkGA1UdEwQCMAAwHwYDVR0jBBgwFoAUxVLtJYAJ35yCyJ9Hxt20XzHdubEwVAYIKwYBBQUHAQEESDBGMEQGCCsGAQUFBzAChjhodHRwOi8vY2NkLmFjc29sdXRpLmNvbS5ici9sY3IvYWMtc29sdXRpLW11bHRpcGxhLXY1LnA3YjCBtwYDVR0RBIGvMIGsgR1maW5hbmNlaXJvQGNzeHNvbHVjb2VzLmNvbS5icqAdBgVgTAEDAqAUExJDUklTVElBTk8gU0VWRVJJTk+gGQYFYEwBAwOgEBMOMjE3MjgzNzYwMDAxOTegOAYFYEwBAwSgLxMtMjQwNDE5ODYwNTA1NzE5ODk0NzAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwoBcGBWBMAQMHoA4TDDAwMDAwMDAwMDAwMDBdBgNVHSAEVjBUMFIGBmBMAQIBJjBIMEYGCCsGAQUFBwIBFjpodHRwOi8vY2NkLmFjc29sdXRpLmNvbS5ici9kb2NzL2RwYy1hYy1zb2x1dGktbXVsdGlwbGEucGRmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDCBjAYDVR0fBIGEMIGBMD6gPKA6hjhodHRwOi8vY2NkLmFjc29sdXRpLmNvbS5ici9sY3IvYWMtc29sdXRpLW11bHRpcGxhLXY1LmNybDA/oD2gO4Y5aHR0cDovL2NjZDIuYWNzb2x1dGkuY29tLmJyL2xjci9hYy1zb2x1dGktbXVsdGlwbGEtdjUuY3JsMB0GA1UdDgQWBBSLTZjo5EselAC8OJu2aeYct/ZIyjAOBgNVHQ8BAf8EBAMCBeAwDQYJKoZIhvcNAQELBQADggIBAFRG5p7yWD9Zd4iHgrqCGX6dItganhGXvjrvQ3yqLClUSgNkaSOu0zuWkf2VCa1hQ9OnAY7ABvk3KVVtSzJMPQw2ZwZilHXxoLW4Fh2s0itwuZzw0y41duO/hoORW/EyzAFlfUdUKuiREF8UF5Am+XHVfYnYCy6FmssU2xFyyhPsb9UUSGbCtQCpEM5Dz9vGXMymfwJrzj4lkbzM2Y1F58FRaZBKPCTuMuB9pWLe1i0nHofasvM4IrX+rSX/8XfouXun+g4DSYsAjLlhI0dV5remo4tKPVyc7jEk90fDIn2nyTl2215ZfHJVaNsymtWW8wooU7qeA5YMfMYkgGcKZUFmVTOEDVhII4eY7iwOUAa3mnmIINI/FqC2OUkOQc1ENVlUBnhppZkjzCdjnMe7/4t6guumAvyd+f68vcUE6Jn0vc7zuqJdN6dPMogOEOuMgGKjAonzDmPy+mIsNpm0TDQgLTlbxsVaTVjoRR8kuYqlpOQ4DpkGGPVKo0IgNmF7a89QYGmKXg9voMgXnSrnDibZWNYIKWSnm1kExSPXkUioonUd33IpWE5wd5IRkPZ1G6rmKeAEHHqLY1M3IPYPJFOadk7x85bnn7tRZ+jbSakSzntHHCzdJJqsXACHYI8C/w7NS3P6nJcTlB2g1OFgYs6juUYi8tCx37uvHntVk3Ca
+                                            </X509Certificate>
+                                        </X509Data>
+                                    </KeyInfo>
+                                </Signature>
+                            </Rps>
+                        </ListaRps>
+                    </LoteRps>
+                    <Signature>
+                        <SignedInfo>
+                            <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                            <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                            <Reference URI="#NFe42230821728376000197550011231231231271324758">
+                                <Transforms>
+                                    <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                                    <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                                </Transforms>
+                                <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                                <DigestValue>YCYe5VTrhST1Jz8C1mBdyrnwdtc=</DigestValue>
+                            </Reference>
+                        </SignedInfo>
+                        <SignatureValue>
+                            aQU8oO2JPquU2Y2HYW1aLExKNw4eSMyK7b+s553DXBmAorUXp6VfsL37L7UrEgn2EaxIfMOsLnJEdoglC51BkXiGzvA4Q0srH9b4vX5iUaB5/8tSI0eY2ms8uSC456TKuwx8/FR8vlWMhXlXgiiKMiO8n33hjR2EP9Hju/a5/ZiLUg2m1GI1cc4OsVQJjq9d8la5zHCx4L+d+4axKliygfWMaRmbioI8TgCLyVyjNI4ADmgueQCOKDp9rEoTgT6E21rwIBTKusvy2NjONjsgxe5QIDAzQRF2N2wAegEH/yOUhHS/8XeqiD9CLYyBrNcEmSydawSlQjPDnb2miD1BIA==
+                        </SignatureValue>
+                        <KeyInfo>
+                            <X509Data>
+                                <X509Certificate>
+                                    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
+                                </X509Certificate>
+                            </X509Data>
+                        </KeyInfo>
+                    </Signature>
+                </EnviarLoteRpsEnvio>
+            </nfseDadosMsg>
+        </nfse:RecepcionarLoteRpsRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

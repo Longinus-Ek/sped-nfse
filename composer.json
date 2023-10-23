@@ -25,6 +25,10 @@
     "require": {
       "php": ">=8.0",
       "ext-curl": "*",
-      "ext-dom": "*"
+      "ext-dom": "*",
+      "ext-openssl": "*",
+        "ext-soap": "*",
+        "ext-simplexml": "*",
+        "ext-libxml": "*"
     }
 }
