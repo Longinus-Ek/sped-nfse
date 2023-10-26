@@ -69,6 +69,10 @@ class Nfse extends DOMDocument
      */
     protected $Id;
     /**
+     * @var string $serie;
+     */
+    protected $serie;
+    /**
      * @var string $prefixoNfse
      */
     protected string $prefixoNfse;
@@ -126,7 +130,7 @@ class Nfse extends DOMDocument
                 $this->dom->addChild(
                     $identificacaoRps,
                     $this->prefixoNfse.'Serie',
-                    "NFSE",
+                    $this->serie,
                     true,
                     'Serie da NFSe'
                 );
@@ -174,6 +178,7 @@ class Nfse extends DOMDocument
         $this->infNfse->setAttribute('Id', $std->Id);
         $this->infNfse->setAttribute('versao', $this->versao);
         $this->Id = $std->Id;
+        $this->serie = $std->serie;
 
         return $this->infNfse;
     }
@@ -260,10 +265,18 @@ class Nfse extends DOMDocument
             true,
             'Valor Outras retenções',
         );
+        $valorTotalTributos = $std->vDed +
+            $std->vPis +
+            $std->vCofins +
+            $std->vInss +
+            $std->vIr +
+            $std->vCsll +
+            $std->vOutrasRetencoes +
+            $std->vIss;
         $this->dom->addChild(
             $valores,
             $this->prefixoNfse.'ValTotTributos',
-            $std->valorTotaisTributos,
+            $valorTotalTributos,
             true,
             'Valor Total dos tributos',
         );
@@ -281,21 +294,21 @@ class Nfse extends DOMDocument
             true,
             'Alíquota Imposto ISS',
         );
+        $this->dom->addChild(
+            $valores,
+            $this->prefixoNfse.'DescontoIncondicionado',
+            $std->descIncondicionado,
+            true,
+            'Desconto incondicionado',
+        );
+        $this->dom->addChild(
+            $valores,
+            $this->prefixoNfse.'DescontoCondicionado',
+            $std->descCondicionado,
+            true,
+            'Desconto condicionado',
+        );
 
-//        $this->dom->addChild(
-//            $valores,
-//            $this->prefixoNfse.'DescontoIncondicionado',
-//            $std->descIncondicionado,
-//            true,
-//            'Desconto incondicionado',
-//        );
-//        $this->dom->addChild(
-//            $valores,
-//            $this->prefixoNfse.'DescontoCondicionado',
-//            $std->descCondicionado,
-//            true,
-//            'Desconto condicionado',
-//        );
         //Adiciona node valores no node serviço
         $this->dom->appChild($this->servico, $valores, 'Falta tag Serviço');
         $this->dom->addChild(
@@ -305,13 +318,22 @@ class Nfse extends DOMDocument
             true,
             'Choice Iss Retido, seguindo o padrão 1 Sim, 2 Nao'
         );
-        $this->dom->addChild(
-            $this->servico,
-            $this->prefixoNfse.'ResponsavelRetencao',
-            $std->vIssRetido,
-            false,
-            'Valor ISS Retido caso IssRetido seja 1'
-        );
+        if($std->issRetido == "1") {
+            $this->dom->addChild(
+                $this->servico,
+                $this->prefixoNfse . 'ValorIssRetido',
+                $std->vIss,
+                false,
+                'Valor ISS Retido caso IssRetido seja 1'
+            );
+            $this->dom->addChild(
+                $this->servico,
+                $this->prefixoNfse . 'ResponsavelRetencao',
+                $std->responsavelRetencao,
+                false,
+                'Responsável Retenção 1 tomador 2 intermediario'
+            );
+        }
         $this->dom->addChild(
             $this->servico,
             $this->prefixoNfse.'ItemListaServico',
@@ -349,6 +371,13 @@ class Nfse extends DOMDocument
         );
         $this->dom->addChild(
             $this->servico,
+            $this->prefixoNfse.'CodigoPais',
+            $std->codigoPais,
+            true,
+            'Código de identificação do município conforme tabela do IBGE. Preencher com 5 noves para serviço prestado no exterior'
+        );
+        $this->dom->addChild(
+            $this->servico,
             $this->prefixoNfse.'ExigibilidadeISS',
             $std->exigibilidadeISS,
             true,
@@ -358,7 +387,7 @@ class Nfse extends DOMDocument
             $this->servico,
             $this->prefixoNfse.'OutrasInformacoes',
             $std->outrasInformacoes,
-            false,
+            true,
             'Outras informações do Serviço'
         );
         $this->dom->addChild(

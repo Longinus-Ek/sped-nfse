@@ -8,7 +8,7 @@ use DOMNode;
 
 class SignerNfse
 {
-    public static function signNfse($certificado, $password, $dadosXML): bool|string
+    public static function generateSign($certificado, $password, $dadosXML): bool|string
     {
         if (openssl_pkcs12_read($certificado, $certs, $password) && extension_loaded('openssl')) {
 
@@ -24,7 +24,7 @@ class SignerNfse
 
             // Cria o elemento Signature
             $signature = $doc->createElement('Signature');
-            $signature->setAttribute('xmlns', 'http://www.w3.org/2000/09/xmldsig#');
+            $signature->setAttribute('xmlns', "http://www.w3.org/2000/09/xmldsig#");
 
             // Cria o elemento SignedInfo
             $signedInfo = $doc->createElement('SignedInfo');

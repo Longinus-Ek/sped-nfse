@@ -16,7 +16,7 @@ class Standardize
         $this->resp = $resposta;
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         $xmlObj = simplexml_load_string($this->resp);
 
@@ -61,6 +61,23 @@ class Standardize
                     } elseif (property_exists($result, 'ConsultarLoteRpsResult')) {
                         // ConsultarLoteRpsResponse
                         $result = $result->ConsultarLoteRpsResult;
+                        $response['Situacao'] = (string) $result->Situacao;
+
+                        if (isset($result->ListaMensagemRetorno->MensagemRetorno)) {
+                            foreach ($result->ListaMensagemRetorno->MensagemRetorno as $message) {
+                                $msg = [
+                                    'Codigo' => (string) $message->Codigo,
+                                    'Mensagem' => (string) $message->Mensagem,
+                                    'Correcao' => (string) $message->Correcao
+                                ];
+
+                                $messages[] = $msg;
+                            }
+                            $response['messages'] = $messages;
+                        }
+                    } elseif (property_exists($result, 'CancelarNfseResult')){
+                        //CancelarRpsResponse
+                        $result = $result->CancelarNfseResult;
                         $response['Situacao'] = (string) $result->Situacao;
 
                         if (isset($result->ListaMensagemRetorno->MensagemRetorno)) {

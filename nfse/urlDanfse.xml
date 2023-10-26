@@ -26,7 +26,7 @@
         <RR></RR>
         <SC>
             <BLUMENAU>
-                <HOM>http://wshomologacaoabrasf.simplissweb.com.br/ws_nfse/nfseservice.svc?wsdl</HOM>
+                <HOM>http://wshomologacaoabrasf.simplissweb.com.br/nfseservice.svc?singleWsdl</HOM>
                 <PROD>http://wsblumenau.simplissweb.com.br/nfseservice.svc?wsdl</PROD>
                     <LOTE>
                         <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/RecepcionarLoteRps</soapAction>
@@ -64,6 +64,24 @@
                             </FOOTER>
                         </CABECALHO>
                     </CONSULTA>
+                    <CANCELAR>
+                        <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/CancelarNfse</soapAction>
+                        <CABECALHO>
+                            <HEADER>
+                                &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
+                                &lt;soapenv:Header/&gt;
+                                &lt;soapenv:Body&gt;
+                                &lt;sis:CancelarNfse&gt;
+                                &lt;sis:CancelarNfseEnvio&gt;
+                            </HEADER>
+                            <FOOTER>
+                                &lt;/sis:CancelarNfseEnvio&gt;
+                                &lt;/sis:CancelarNfse&gt;
+                                &lt;/soapenv:Body&gt;
+                                &lt;/soapenv:Envelope&gt;
+                            </FOOTER>
+                        </CABECALHO>
+                    </CANCELAR>
             </BLUMENAU>
         </SC>
         <SE></SE>

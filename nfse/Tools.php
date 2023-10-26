@@ -4,6 +4,7 @@ namespace NFSePHP\NFSe;
 
 use DOMDocument;
 use DOMXPath;
+use Illuminate\Support\Facades\Storage;
 use InvalidArgumentException;
 use LucasArend\HttpFox\HttpFox;
 use NFePHP\DA\Legacy\Dom;
@@ -62,7 +63,7 @@ class Tools
     public function gerarNFSe($signedXML, array $options)
     {
         try {
-            $infoHeader = $this->getEnvelopeCabecalho();
+            $infoHeader = $this->getCabecalho();
             $soapAction = $this->getSoapAction();
             $xmlFormatedString = validXml::formatXML($signedXML, $infoHeader);
             $xmlEnvio = new DOMDocument('1.0', 'UTF-8');
@@ -138,6 +139,46 @@ class Tools
 
         $xmlEnvio = new DOMDocument('1.0', 'UTF-8');
         $xmlEnvio->loadXML(trim($xmlFormatedString));
+        $xmlEnvio->formatOutput = true;
+
+        $http = new HttpFox();
+        $http->disableSSL();
+        //$http->setProxy(); //Utilizado para depurar as requisições com o fiddler
+        array_push($options, $soapAction);
+
+        $http->setHeaders($options);
+
+        $result = $http->sendPost($this->getUrlConnect(),$xmlEnvio->saveXML());
+
+        return $result;
+    }
+
+    public function cancelaRps($xml, $numRPS, $numNFS, $cnpj, $codigoMunicipio, $inscricao, array $options): string
+    {
+        $infoHeader = $this->getCabecalho('CANCELAR');
+        $soapAction = $this->getSoapAction('CANCELAR');
+
+        $sing = SignerNfse::generateSign($this->certificate, $this->password, $xml);
+
+        $xml = '
+        <nfse:Pedido>
+        <nfse:InfPedidoCancelamento Id="'.$numRPS.'">
+            <nfse:IdentificacaoNfse>
+                <nfse:Numero>'.$numNFS.'</nfse:Numero>
+                <nfse:CpfCnpj>
+                    <nfse:Cnpj>'.$cnpj.'</nfse:Cnpj>
+                </nfse:CpfCnpj>
+                <nfse:InscricaoMunicipal>'.$inscricao.'</nfse:InscricaoMunicipal>
+                <nfse:CodigoMunicipio>'.$codigoMunicipio.'</nfse:CodigoMunicipio>
+            </nfse:IdentificacaoNfse>
+            <nfse:CodigoCancelamento>2</nfse:CodigoCancelamento>
+        </nfse:InfPedidoCancelamento>
+        </nfse:Pedido>'
+        . $sing;
+        $xml = validXml::formatXML($xml, $infoHeader);
+
+        $xmlEnvio = new DOMDocument('1.0', 'UTF-8');
+        $xmlEnvio->loadXML(trim($xml));
         $xmlEnvio->formatOutput = true;
 
         $http = new HttpFox();
@@ -229,6 +270,19 @@ class Tools
         return $file;
     }
 
+    public function getNumeroFromXML($xmlString) {
+        $xml = simplexml_load_string($xmlString);
+        $xml->registerXPathNamespace('n', 'http://www.abrasf.org.br/nfse.xsd');
+
+        $numeroNode = $xml->xpath('//n:Numero');
+
+        if (!empty($numeroNode)) {
+            return (string) $numeroNode[0];
+        }
+
+        return null;
+    }
+
     /**
      * Sign NFe or NFCe
      * @param  string  $xml NFe xml content
@@ -237,7 +291,7 @@ class Tools
      */
     public function signLoteRps(string $xml): string
     {
-        $gerarAssinatura = SignerNfse::signNfse($this->certificate, $this->password, $xml);
+        $gerarAssinatura = SignerNfse::generateSign($this->certificate, $this->password, $xml);
         if(!$gerarAssinatura){
             throw new Exception('Falha na leitura do Certificado, senha incorreta!');
         }
