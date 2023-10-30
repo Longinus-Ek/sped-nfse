@@ -180,7 +180,17 @@ class Danfse extends Mpdf
         font-style: normal;
         font-weight: bold;
         text-decoration: none;
-        font-size: 8pt;
+        font-size: 8.5pt;
+        line-height: 6pt;
+    }
+
+    .s4-sm {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 7pt;
         line-height: 6pt;
     }
 
@@ -191,6 +201,16 @@ class Danfse extends Mpdf
         font-weight: normal;
         text-decoration: none;
         font-size: 8.5pt;
+        line-height: 6pt;
+    }
+
+    .s5-sm {
+        color: black;
+        font-family: Arial, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 7.5pt;
         line-height: 6pt;
     }
 
@@ -297,8 +317,8 @@ class Danfse extends Mpdf
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="6">
             <table  style="width: 100%">
                 <tr>
-                    <td>
-                        <img src="data:' . $contentMime . ';base64,' . $base64Logo . '" alt="Logo da Empresa" style="height: 100px;">
+                    <td style="text-align: left; width: 100px">
+                        <img src="data:' . $contentMime . ';base64,' . $base64Logo . '" alt="Logo da Empresa" style="width: 100px; height: 95px">
                     </td>
                     <td style="text-align: left">
                         <p class="s5">Nome/Razão Social: <b>CSX SOLUÇÕES LTDA</b></p>
@@ -306,19 +326,15 @@ class Danfse extends Mpdf
                         <p class="s5">CNPJ/CPF: <b>21.728.376/0001-97</b></p>
                         <p class="s5">Endereço: <b>BOTUVERA</b></p>
                         <p class="s5">Bairro: <b>ITOUPAVAZINHA</b></p>
-                        <p class="s5">Municipio: <b>BLUMENAU </b></p>
-                        <p class="s5">E-mail: <b>nfe@csxsolucoes.com.br</b></p>
-                        <p class="s5">País: <b>BRASIL</b></p>
-                    </td>
-                    <td style="text-align: center">
-                        <p class="s5">Insc. Municipal: <b>110675</b></p>
+                        <p class="s5">Municipio: <b>BLUMENAU </b> | País: <b>BRASIL</b></p>
+                        <p class="s5">Insc. Municipal: <b>110675</b> | Insc. Estadual: <b>110675</b></p>
                     </td>
                     <td style="text-align: right">
-                        <p class="s5">Insc. Estadual: <b>110675</b></p>
                         <p class="s5">N°: <b>508</b></p>
                         <p class="s5">Complemento: <b>SALA 101</b></p>
                         <p class="s5">UF: <b>SC </b> | CEP: <b>89066-360</b></p>
                         <p class="s5">Telefone: <b>4733084515</b></p>
+                        <p class="s5">E-mail: <b>nfe@csxsolucoes.com.br</b></p>
                     </td>
                 </tr>
             </table>
@@ -333,25 +349,21 @@ class Danfse extends Mpdf
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="6">
             <table style="width: 100%">
                 <tr>
-                    <td colspan="2" style="text-align: left">
+                    <td style="text-align: left">
                         <p class="s5">Nome/Razão Social: <b>CSX SOLUÇÕES LTDA</b></p>
                         <p class="s5">Nome Fantasia: <b>CSX SOLUÇÕES LTDA</b></p>
                         <p class="s5">CNPJ/CPF: <b>21.728.376/0001-97</b></p>
                         <p class="s5">Endereço: <b>BOTUVERA</b></p>
                         <p class="s5">Bairro: <b>ITOUPAVAZINHA</b></p>
-                        <p class="s5">Municipio: <b>BLUMENAU </b></p>
-                        <p class="s5">E-mail: <b>nfe@csxsolucoes.com.br</b></p>
-                        <p class="s5">País: <b>BRASIL</b></p>
+                        <p class="s5">Municipio: <b>BLUMENAU </b> | País: <b>BRASIL</b></p>
+                        <p class="s5">Insc. Municipal: <b>110675</b> | Insc. Estadual: <b>110675</b></p>
                     </td>
-                    <td colspan="2" style="text-align: left">
-                        <p class="s5">Insc. Municipal: <b>110675</b></p>
-                    </td>
-                    <td colspan="2" style="text-align: right">
-                        <p class="s5">Insc. Estadual: <b>110675</b></p>
+                    <td style="text-align: right">
                         <p class="s5">N°: <b>508</b></p>
                         <p class="s5">Complemento: <b>SALA 101</b></p>
                         <p class="s5">UF: <b>SC </b> | CEP: <b>89066-360</b></p>
                         <p class="s5">Telefone: <b>4733084515</b></p>
+                        <p class="s5">E-mail: <b>nfe@csxsolucoes.com.br</b></p>
                     </td>
                 </tr>
             </table>
@@ -368,7 +380,7 @@ class Danfse extends Mpdf
     </tr>
     <tr style="height:20pt">
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: right;" colspan="5">
-            <p class="s4">VALOR BRUTO DA NOTA</p>
+            <p class="s4-sm">VALOR BRUTO DA NOTA</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: right;">
             <p class="s4">R$ 350,00</p>
@@ -431,7 +443,7 @@ class Danfse extends Mpdf
             <p class="s8">Valor Aproximado dos tributos R$ 0,00</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: right;">
-            <p class="s4">VALOR LÍQUIDO DA NOTA</p>
+            <p class="s4-sm">VALOR LÍQUIDO DA NOTA</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: right;">
             <p class="s4">R$ 350,00</p>
@@ -445,7 +457,7 @@ class Danfse extends Mpdf
     <tr style="height:38pt">
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;" colspan="6">
             <p><br/></p>
-            <p class="s5">Atividade: 1.07 - Suporte técnico em informática, inclusive instalação, configuração e manutenção de programas de computação e bancos de dados.</p>
+            <p class="s5-sm">Atividade: 1.07 - Suporte técnico em informática, inclusive instalação, configuração e manutenção de programas de computação e bancos de dados.</p>
         </td>
     </tr>
     <tr style="height:12pt">
@@ -478,7 +490,7 @@ class Danfse extends Mpdf
                 </tr>
                 <tr>
                     <td>
-                        <p class="s5">Impresso: ' . date('d/m/Y') . ' às ' . date('H:i:s') . ' por: ' . strtoupper(env('APP_NAME')) . '</p>
+                        <p class="s5-sm">Impresso: ' . date('d/m/Y') . ' às ' . date('H:i:s') . ' por: ' . strtoupper(env('APP_NAME')) . '</p>
                     </td>
                     <td colspan="2" style="text-align: right; vertical-align: bottom">
                         <p class="s7">O conteúdo deste documento fiscal é de inteira responsabilidade do emissor.</p>
