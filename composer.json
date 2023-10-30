@@ -23,12 +23,15 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "php": ">=8.0",
-      "ext-curl": "*",
-      "ext-dom": "*",
-      "ext-openssl": "*",
+        "php": ">=8.0",
+        "mpdf/mpdf": "^8.1",
+        "bacon/bacon-qr-code": "^2.0",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-openssl": "*",
         "ext-soap": "*",
         "ext-simplexml": "*",
-        "ext-libxml": "*"
+        "ext-libxml": "*",
+        "ext-exif": "*"
     }
 }

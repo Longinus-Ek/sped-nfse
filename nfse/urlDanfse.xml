@@ -28,6 +28,7 @@
             <BLUMENAU>
                 <HOM>http://wshomologacaoabrasf.simplissweb.com.br/nfseservice.svc?singleWsdl</HOM>
                 <PROD>http://wsblumenau.simplissweb.com.br/nfseservice.svc?wsdl</PROD>
+                <linkPDF>&lt;https://nfse.blumenau.sc.gov.br/contrib/app/nfse/relatorio?cnpj=CNPJEMITENTE&amp;ser=SERIENFSE&amp;inum=NUMNFSE&amp;icod=CODVERIFYNFSE&gt;</linkPDF>
                     <LOTE>
                         <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/RecepcionarLoteRps</soapAction>
                         <CABECALHO>
