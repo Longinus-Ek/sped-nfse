@@ -147,6 +147,15 @@ class Danfse extends Mpdf
         if(isset($objXml->tomador->IdentificacaoTomador->InscricaoMunicipal)){
             $inscricaoT = $objXml->tomador->IdentificacaoTomador->InscricaoMunicipal;
         }
+        if(!isset($objXml->servico->Valores->ValorPis)){
+            $objXml->servico->Valores->ValorPis = 0;
+        }
+        if(!isset($objXml->servico->Valores->ValorCsll)){
+            $objXml->servico->Valores->ValorCsll = 0;
+        }
+        if(!isset($objXml->servico->Valores->ValorCofins)){
+            $objXml->servico->Valores->ValorCofins = 0;
+        }
 
 
         $documentoTomador = 'Não Informado';
@@ -357,8 +366,8 @@ class Danfse extends Mpdf
                         <p class="s5">N°: <b>'.$objXml->prestador->Endereco->Numero.'</b></p>
                         <p class="s5">Complemento: <b>'.mb_strtoupper($objXml->prestador->Endereco->Complemento).'</b></p>
                         <p class="s5">UF: <b>'.$objXml->prestador->Endereco->Uf.'</b> | CEP: <b>'.preg_replace('/^(\d{5})(\d{3})$/', '$1-$2', $objXml->prestador->Endereco->Cep).'</b></p>
-                        <p class="s5">Telefone: <b>'.$objXml->prestador->Contato->Telefone.'</b></p>
-                        <p class="s5">E-mail: <b>'.$objXml->prestador->Contato->Email.'</b></p>
+                        <p class="s5">Telefone: <b>'.(isset($objXml->prestador->Contato) ? $objXml->prestador->Contato->Telefone : 'Não Informado').'</b></p>
+                        <p class="s5">E-mail: <b>'.(isset($objXml->prestador->Contato) ? $objXml->prestador->Contato->Email : 'Não Informado').'</b></p>
                     </td>
                 </tr>
             </table>
@@ -386,8 +395,8 @@ class Danfse extends Mpdf
                         <p class="s5">N°: <b>'.$objXml->tomador->Endereco->Numero.'</b></p>
                         <p class="s5">Complemento: <b>'.mb_strtoupper($objXml->tomador->Endereco->Complemento).'</b></p>
                         <p class="s5">UF: <b>'.$objXml->tomador->Endereco->Uf.'</b> | CEP: <b>' . preg_replace('/^(\d{5})(\d{3})$/', '$1-$2', $objXml->tomador->Endereco->Cep) . '</b></p>
-                        <p class="s5">Telefone: <b>'.$objXml->tomador->Contato->Telefone.'</b></p>
-                        <p class="s5">E-mail: <b>'.$objXml->tomador->Contato->Email.'</b></p>
+                        <p class="s5">Telefone: <b>'.(isset($objXml->tomador->Contato) ? $objXml->tomador->Contato->Telefone : 'Não Informado').'</b></p>
+                        <p class="s5">E-mail: <b>'.(isset($objXml->tomador->Contato) ? $objXml->tomador->Contato->Email : 'Não Informado').'</b></p>
                     </td>
                 </tr>
             </table>
