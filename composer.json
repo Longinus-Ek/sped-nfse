@@ -32,6 +32,7 @@
         "ext-soap": "*",
         "ext-simplexml": "*",
         "ext-libxml": "*",
-        "ext-exif": "*"
+        "ext-exif": "*",
+        "ext-imagick": "*"
     }
 }

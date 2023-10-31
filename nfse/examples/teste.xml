@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd"
+                  xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+
+
+    <soapenv:Header/>
+
+
+    <soapenv:Body>
+
+
+        <sis:RecepcionarLoteRps>
+
+
+            <sis:EnviarLoteRpsEnvio>
+
+
+                <nfse:LoteRps Id="126" versao="2.03">
+
+
+                    <nfse:NumeroLote>126</nfse:NumeroLote>
+
+
+                    <nfse:CpfCnpj>
+
+
+                        <nfse:Cnpj>21728376000197</nfse:Cnpj>
+
+
+                    </nfse:CpfCnpj>
+
+
+                    <nfse:InscricaoMunicipal>110675</nfse:InscricaoMunicipal>
+
+
+                    <nfse:QuantidadeRps>1</nfse:QuantidadeRps>
+
+
+                    <nfse:ListaRps>
+
+
+                        <nfse:Rps>
+
+
+                            <nfse:InfDeclaracaoPrestacaoServico Id="126">
+
+
+                                <nfse:Rps Id="126">
+
+
+                                    <nfse:IdentificacaoRps>
+
+
+                                        <nfse:Numero>126</nfse:Numero>
+
+
+                                        <nfse:Serie>A</nfse:Serie>
+
+
+                                        <nfse:Tipo>1</nfse:Tipo>
+
+
+                                    </nfse:IdentificacaoRps>
+
+
+                                    <nfse:DataEmissao>2023-10-31</nfse:DataEmissao>
+
+
+                                    <nfse:Status>1</nfse:Status>
+
+
+                                </nfse:Rps>
+
+
+                                <nfse:Competencia>2023-10-31</nfse:Competencia>
+
+
+                                <nfse:Servico>
+
+
+                                    <nfse:Valores>
+
+
+                                        <nfse:ValorServicos>400</nfse:ValorServicos>
+
+
+                                        <nfse:ValorDeducoes>0</nfse:ValorDeducoes>
+
+
+                                        <nfse:ValorPis>8</nfse:ValorPis>
+
+
+                                        <nfse:ValorCofins>8</nfse:ValorCofins>
+
+
+                                        <nfse:ValorInss>0</nfse:ValorInss>
+
+
+                                        <nfse:ValorIr>0</nfse:ValorIr>
+
+
+                                        <nfse:ValorCsll>8</nfse:ValorCsll>
+
+
+                                        <nfse:OutrasRetencoes>0</nfse:OutrasRetencoes>
+
+
+                                        <nfse:ValTotTributos>32</nfse:ValTotTributos>
+
+
+                                        <nfse:ValorIss>8</nfse:ValorIss>
+
+
+                                        <nfse:Aliquota>2</nfse:Aliquota>
+
+
+                                        <nfse:DescontoIncondicionado>0</nfse:DescontoIncondicionado>
+
+
+                                        <nfse:DescontoCondicionado>0</nfse:DescontoCondicionado>
+
+
+                                    </nfse:Valores>
+
+
+                                    <nfse:IssRetido>2</nfse:IssRetido>
+
+
+                                    <nfse:ItemListaServico>1.01</nfse:ItemListaServico>
+
+
+                                    <nfse:CodigoCnae>6204000</nfse:CodigoCnae>
+
+
+                                    <nfse:CodigoTributacaoMunicipio>1.01</nfse:CodigoTributacaoMunicipio>
+
+
+                                    <nfse:Discriminacao>TESTE, TESTE, TESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE,
+                                        TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE,
+                                        TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE, TESTETESTE,
+                                        TESTETESTE, TESTETESTE, TESTETESTE, TESTE
+                                    </nfse:Discriminacao>
+
+
+                                    <nfse:CodigoMunicipio>4202404</nfse:CodigoMunicipio>
+
+
+                                    <nfse:CodigoPais>1058</nfse:CodigoPais>
+
+
+                                    <nfse:ExigibilidadeISS>1</nfse:ExigibilidadeISS>
+
+
+                                    <nfse:OutrasInformacoes/>
+
+
+                                    <nfse:MunicipioIncidencia>4202404</nfse:MunicipioIncidencia>
+
+
+                                </nfse:Servico>
+
+
+                                <nfse:Prestador>
+                                    <nfse:CpfCnpj>
+                                        <nfse:Cnpj>21728376000197</nfse:Cnpj>
+                                    </nfse:CpfCnpj>
+                                    <nfse:InscricaoMunicipal>110675</nfse:InscricaoMunicipal>
+                                </nfse:Prestador>
+                                <nfse:Tomador>
+                                    <nfse:IdentificacaoTomador>
+                                        <nfse:CpfCnpj>
+                                            <nfse:Cnpj>12528708000107</nfse:Cnpj>
+                                        </nfse:CpfCnpj>
+                                    </nfse:IdentificacaoTomador>
+                                    <nfse:InscricaoMunicipal>123</nfse:InscricaoMunicipal>
+                                    <nfse:RazaoSocial>AERIS INDUSTRIA E COMERCIO DE EQUIPAMENTOS PARA GERACAO DE ENERGIA S.A</nfse:RazaoSocial>
+                                    <nfse:Endereco>
+                                        <nfse:Endereco>Rua Marcelino Pereira</nfse:Endereco>
+                                        <nfse:Numero>123</nfse:Numero>
+                                        <nfse:Complemento>casa</nfse:Complemento>
+                                        <nfse:Bairro>Santa Terezinha</nfse:Bairro>
+                                        <nfse:CodigoMunicipio>4202909</nfse:CodigoMunicipio>
+                                        <nfse:Uf>SC</nfse:Uf>
+                                        <nfse:CodigoPais>1058</nfse:CodigoPais>
+                                        <nfse:Cep>88352265</nfse:Cep>
+                                    </nfse:Endereco>
+                                    <nfse:Contato>
+                                        <nfse:Telefone>1545967144</nfse:Telefone>
+                                        <nfse:Email>simon.pedrosa@uol.com.br</nfse:Email>
+                                    </nfse:Contato>
+                                </nfse:Tomador>
+                                <nfse:RegimeEspecialTributacao>1</nfse:RegimeEspecialTributacao>
+                                <nfse:OptanteSimplesNacional>2</nfse:OptanteSimplesNacional>
+                                <nfse:IncentivoFiscal>2</nfse:IncentivoFiscal>
+                            </nfse:InfDeclaracaoPrestacaoServico>
+                            <xd:Signature>
+                                <xd:SignedInfo>
+                                    <xd:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                                    <xd:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                                    <xd:Reference>
+                                        <xd:Transforms>
+                                            <xd:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                                            <xd:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                                        </xd:Transforms>
+                                        <xd:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                                        <xd:DigestValue>cv3IjlGPL0cKhq678VxLv+fsmog=</xd:DigestValue>
+                                    </xd:Reference>
+                                </xd:SignedInfo>
+                                <xd:SignatureValue>
+                                    cbN4ikMMvS67y9K6PvqM6lDuaCj1IVCWH2lb6+k9La4Yr+JVBnO1M2QYJTpD58q9Riu9HRXGWxqbg1w/KHEwpW++HA6/keaJpd8UJ3og9ZDh5sA2Tm8U1iTUhqqgI803Fwj34K+Dsit8BYBq0T0G7nzsEl9FEYEb8pf5Pg3aKNajcSTpOePuN/uF9FZMzfqmQqkf8/7fEQRTb3eW9pK6mhhYS2j7PsWTF870x4IYVlyMBqmX0tvc+b4uog+fKQcHxYW60TWEExw4wd+AINYwqRpc1IjLLAzT0wUQKH/5FUmuKMBOObuK2TWdNuF29SXj5NM7IAozCYAKux5YDL7dHg==
+                                </xd:SignatureValue>
+                                <xd:KeyInfo>
+                                    <xd:X509Data>
+                                        <xd:X509Certificate>
+                                            Q2VydGlmaWNhdGU6CiAgICBEYXRhOgogICAgICAgIFZlcnNpb246IDMgKDB4MikKICAgICAgICBTZXJpYWwgTnVtYmVyOgogICAgICAgICAgICA0OTozNDoyMzowODoxMTo1OTo5ODoxNgogICAgICAgIFNpZ25hdHVyZSBBbGdvcml0aG06IHNoYTI1NldpdGhSU0FFbmNyeXB0aW9uCiAgICAgICAgSXNzdWVyOiBDPUJSLCBPPUlDUC1CcmFzaWwsIE9VPUFDIFNPTFVUSSB2NSwgQ049QUMgU09MVVRJIE11bHRpcGxhIHY1CiAgICAgICAgVmFsaWRpdHkKICAgICAgICAgICAgTm90IEJlZm9yZTogQXVnIDExIDE5OjQ4OjAwIDIwMjMgR01UCiAgICAgICAgICAgIE5vdCBBZnRlciA6IEF1ZyAxMCAxOTo0ODowMCAyMDI0IEdNVAogICAgICAgIFN1YmplY3Q6IEM9QlIsIE89SUNQLUJyYXNpbCwgU1Q9U0MsIEw9Qmx1bWVuYXUsIE9VPUFDIFNPTFVUSSBNdWx0aXBsYSB2NSwgT1U9Mjc2MTMwNzIwMDAxNjAsIE9VPVZpZGVvY29uZmVyZW5jaWEsIE9VPUNlcnRpZmljYWRvIFBKIEExLCBDTj1DU1ggU09MVUNPRVMgTFREQToyMTcyODM3NjAwMDE5NwogICAgICAgIFN1YmplY3QgUHVibGljIEtleSBJbmZvOgogICAgICAgICAgICBQdWJsaWMgS2V5IEFsZ29yaXRobTogcnNhRW5jcnlwdGlvbgogICAgICAgICAgICAgICAgUlNBIFB1YmxpYy1LZXk6ICgyMDQ4IGJpdCkKICAgICAgICAgICAgICAgIE1vZHVsdXM6CiAgICAgICAgICAgICAgICAgICAgMDA6YjU6MDQ6MTY6NWM6Mzk6NzA6YjY6MzU6ZGQ6NjE6OGY6ZTc6ODM6NWQ6CiAgICAgICAgICAgICAgICAgICAgNWI6YTI6ZjA6OTg6MDQ6NTM6YWY6OWM6MjA6ODU6OTE6NGM6MjI6MjU6MjM6CiAgICAgICAgICAgICAgICAgICAgNzQ6M2U6ZmE6ODA6OTI6OGU6YTk6Zjg6NTg6ZTM6ZmU6Nzg6ZjY6MmM6NWI6CiAgICAgICAgICAgICAgICAgICAgNDg6M2I6N2M6ZWY6MjM6MGY6OWQ6ZmM6Yjg6NDI6MGI6ZDE6YTI6YTA6Njk6CiAgICAgICAgICAgICAgICAgICAgMzE6YjI6ZDg6NzE6OTQ6NjY6M2Y6ZmE6ZDE6NWI6ZmY6M2Y6Mzg6ZDM6M2E6CiAgICAgICAgICAgICAgICAgICAgZTE6MzQ6ODE6ZWE6ZmE6NTQ6Mjc6ZmE6ZTE6M2M6Y2E6NzI6OGM6Y2Q6NmY6CiAgICAgICAgICAgICAgICAgICAgMDc6MmI6MDI6Njc6YmY6ZmM6YmU6NzY6NDc6MDQ6ZDI6NzY6YjU6MWQ6Zjg6CiAgICAgICAgICAgICAgICAgICAgNzA6MjE6NjY6M2U6ZWU6MmI6N2Y6ODU6ZjI6MzM6NTY6ZTg6M2Y6NjY6MDc6CiAgICAgICAgICAgICAgICAgICAgZTk6YTI6MjA6ODU6MDY6ZWQ6ZjA6Nzg6YmQ6ZWQ6NGM6YzI6MjU6Zjg6Y2Y6CiAgICAgICAgICAgICAgICAgICAgYzc6YTI6MWM6YTA6OWY6NzM6ODI6MzE6Yzc6MzY6NjQ6NzQ6ZmY6MTI6ZDk6CiAgICAgICAgICAgICAgICAgICAgNDY6ODE6MGM6NDg6NTg6YzQ6MjY6YTA6N2Y6ZGQ6ZjE6ZWE6ZDQ6MmM6NjU6CiAgICAgICAgICAgICAgICAgICAgNjU6NjA6NjY6MDI6ZjM6MjU6ZGU6NWQ6OGE6ZTE6YTE6M2Y6MWY6NWE6NTg6CiAgICAgICAgICAgICAgICAgICAgNmM6OWY6NjU6NjM6NDU6YmE6NjU6NjM6MzA6NDA6YmQ6NTc6NWQ6OWY6YTg6CiAgICAgICAgICAgICAgICAgICAgYzE6ZTk6MjU6ZTU6ZDc6MzM6Nzc6M2U6N2E6MTU6MDE6Mjc6M2M6ZGI6ODI6CiAgICAgICAgICAgICAgICAgICAgMTU6YmQ6ZjY6YTc6NmI6NmM6Njc6NzI6NmM6YzU6ZWU6M2M6YzI6MTg6YzM6CiAgICAgICAgICAgICAgICAgICAgYzg6NDM6Y2Y6MjI6OWE6MzA6YjM6ZGM6NzM6MWE6OTU6ZjI6YjI6YTU6ZTI6CiAgICAgICAgICAgICAgICAgICAgMjk6NDA6NDM6ZWQ6NzU6ZTk6NWM6ZWU6ZjE6Y2E6OTQ6Zjk6YzU6ZDY6ZTA6CiAgICAgICAgICAgICAgICAgICAgMTk6ODkKICAgICAgICAgICAgICAgIEV4cG9uZW50OiA2NTUzNyAoMHgxMDAwMSkKICAgICAgICBYNTA5djMgZXh0ZW5zaW9uczoKICAgICAgICAgICAgWDUwOXYzIEJhc2ljIENvbnN0cmFpbnRzOiAKICAgICAgICAgICAgICAgIENBOkZBTFNFCiAgICAgICAgICAgIFg1MDl2MyBBdXRob3JpdHkgS2V5IElkZW50aWZpZXI6IAogICAgICAgICAgICAgICAga2V5aWQ6QzU6NTI6RUQ6MjU6ODA6MDk6REY6OUM6ODI6Qzg6OUY6NDc6QzY6REQ6QjQ6NUY6MzE6REQ6Qjk6QjEKCiAgICAgICAgICAgIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBBY2Nlc3M6IAogICAgICAgICAgICAgICAgQ0EgSXNzdWVycyAtIFVSSTpodHRwOi8vY2NkLmFjc29sdXRpLmNvbS5ici9sY3IvYWMtc29sdXRpLW11bHRpcGxhLXY1LnA3YgoKICAgICAgICAgICAgWDUwOXYzIFN1YmplY3QgQWx0ZXJuYXRpdmUgTmFtZTogCiAgICAgICAgICAgICAgICBlbWFpbDpmaW5hbmNlaXJvQGNzeHNvbHVjb2VzLmNvbS5iciwgb3RoZXJuYW1lOjx1bnN1cHBvcnRlZD4sIG90aGVybmFtZTo8dW5zdXBwb3J0ZWQ+LCBvdGhlcm5hbWU6PHVuc3VwcG9ydGVkPiwgb3RoZXJuYW1lOjx1bnN1cHBvcnRlZD4KICAgICAgICAgICAgWDUwOXYzIENlcnRpZmljYXRlIFBvbGljaWVzOiAKICAgICAgICAgICAgICAgIFBvbGljeTogMi4xNi43Ni4xLjIuMS4zOAogICAgICAgICAgICAgICAgICBDUFM6IGh0dHA6Ly9jY2QuYWNzb2x1dGkuY29tLmJyL2RvY3MvZHBjLWFjLXNvbHV0aS1tdWx0aXBsYS5wZGYKCiAgICAgICAgICAgIFg1MDl2MyBFeHRlbmRlZCBLZXkgVXNhZ2U6IAogICAgICAgICAgICAgICAgVExTIFdlYiBDbGllbnQgQXV0aGVudGljYXRpb24sIEUtbWFpbCBQcm90ZWN0aW9uCiAgICAgICAgICAgIFg1MDl2MyBDUkwgRGlzdHJpYnV0aW9uIFBvaW50czogCgogICAgICAgICAgICAgICAgRnVsbCBOYW1lOgogICAgICAgICAgICAgICAgICBVUkk6aHR0cDovL2NjZC5hY3NvbHV0aS5jb20uYnIvbGNyL2FjLXNvbHV0aS1tdWx0aXBsYS12NS5jcmwKCiAgICAgICAgICAgICAgICBGdWxsIE5hbWU6CiAgICAgICAgICAgICAgICAgIFVSSTpodHRwOi8vY2NkMi5hY3NvbHV0aS5jb20uYnIvbGNyL2FjLXNvbHV0aS1tdWx0aXBsYS12NS5jcmwKCiAgICAgICAgICAgIFg1MDl2MyBTdWJqZWN0IEtleSBJZGVudGlmaWVyOiAKICAgICAgICAgICAgICAgIDhCOjREOjk4OkU4OkU0OjRCOjFFOjk0OjAwOkJDOjM4OjlCOkI2OjY5OkU2OjFDOkI3OkY2OjQ4OkNBCiAgICAgICAgICAgIFg1MDl2MyBLZXkgVXNhZ2U6IGNyaXRpY2FsCiAgICAgICAgICAgICAgICBEaWdpdGFsIFNpZ25hdHVyZSwgTm9uIFJlcHVkaWF0aW9uLCBLZXkgRW5jaXBoZXJtZW50CiAgICBTaWduYXR1cmUgQWxnb3JpdGhtOiBzaGEyNTZXaXRoUlNBRW5jcnlwdGlvbgogICAgICAgICA1NDo0NjplNjo5ZTpmMjo1ODozZjo1OTo3Nzo4ODo4Nzo4MjpiYTo4MjoxOTo3ZTo5ZDoyMjoKICAgICAgICAgZDg6MWE6OWU6MTE6OTc6YmU6M2E6ZWY6NDM6N2M6YWE6MmM6Mjk6NTQ6NGE6MDM6NjQ6Njk6CiAgICAgICAgIDIzOmFlOmQzOjNiOjk2OjkxOmZkOjk1OjA5OmFkOjYxOjQzOmQzOmE3OjAxOjhlOmMwOjA2OgogICAgICAgICBmOTozNzoyOTo1NTo2ZDo0YjozMjo0YzozZDowYzozNjo2NzowNjo2Mjo5NDo3NTpmMTphMDoKICAgICAgICAgYjU6Yjg6MTY6MWQ6YWM6ZDI6MmI6NzA6Yjk6OWM6ZjA6ZDM6MmU6MzU6NzY6ZTM6YmY6ODY6CiAgICAgICAgIDgzOjkxOjViOmYxOjMyOmNjOjAxOjY1OjdkOjQ3OjU0OjJhOmU4OjkxOjEwOjVmOjE0OjE3OgogICAgICAgICA5MDoyNjpmOTo3MTpkNTo3ZDo4OTpkODowYjoyZTo4NTo5YTpjYjoxNDpkYjoxMTo3MjpjYToKICAgICAgICAgMTM6ZWM6NmY6ZDU6MTQ6NDg6NjY6YzI6YjU6MDA6YTk6MTA6Y2U6NDM6Y2Y6ZGI6YzY6NWM6CiAgICAgICAgIGNjOmE2OjdmOjAyOjZiOmNlOjNlOjI1OjkxOmJjOmNjOmQ5OjhkOjQ1OmU3OmMxOjUxOjY5OgogICAgICAgICA5MDo0YTozYzoyNDplZTozMjplMDo3ZDphNTo2MjpkZTpkNjoyZDoyNzoxZTo4NzpkYTpiMjoKICAgICAgICAgZjM6Mzg6MjI6YjU6ZmU6YWQ6MjU6ZmY6ZjE6Nzc6ZTg6Yjk6N2I6YTc6ZmE6MGU6MDM6NDk6CiAgICAgICAgIDhiOjAwOjhjOmI5OjYxOjIzOjQ3OjU1OmU2OmI3OmE2OmEzOjhiOjRhOjNkOjVjOjljOmVlOgogICAgICAgICAzMToyNDpmNzo0NzpjMzoyMjo3ZDphNzpjOTozOTo3NjpkYjo1ZTo1OTo3Yzo3Mjo1NTo2ODoKICAgICAgICAgZGI6MzI6OWE6ZDU6OTY6ZjM6MGE6Mjg6NTM6YmE6OWU6MDM6OTY6MGM6N2M6YzY6MjQ6ODA6CiAgICAgICAgIDY3OjBhOjY1OjQxOjY2OjU1OjMzOjg0OjBkOjU4OjQ4OjIzOjg3Ojk4OmVlOjJjOjBlOjUwOgogICAgICAgICAwNjpiNzo5YTo3OTo4ODoyMDpkMjozZjoxNjphMDpiNjozOTo0OTowZTo0MTpjZDo0NDozNToKICAgICAgICAgNTk6NTQ6MDY6Nzg6Njk6YTU6OTk6MjM6Y2M6Mjc6NjM6OWM6Yzc6YmI6ZmY6OGI6N2E6ODI6CiAgICAgICAgIGViOmE2OjAyOmZjOjlkOmY5OmZlOmJjOmJkOmM1OjA0OmU4Ojk5OmY0OmJkOmNlOmYzOmJhOgogICAgICAgICBhMjo1ZDozNzphNzo0ZjozMjo4ODowZToxMDplYjo4Yzo4MDo2MjphMzowMjo4OTpmMzowZToKICAgICAgICAgNjM6ZjI6ZmE6NjI6MmM6MzY6OTk6YjQ6NGM6MzQ6MjA6MmQ6Mzk6NWI6YzY6YzU6NWE6NGQ6CiAgICAgICAgIDU4OmU4OjQ1OjFmOjI0OmI5OjhhOmE1OmE0OmU0OjM4OjBlOjk5OjA2OjE4OmY1OjRhOmEzOgogICAgICAgICA0MjoyMDozNjo2MTo3Yjo2YjpjZjo1MDo2MDo2OTo4YTo1ZTowZjo2ZjphMDpjODoxNzo5ZDoKICAgICAgICAgMmE6ZTc6MGU6MjY6ZDk6NTg6ZDY6MDg6Mjk6NjQ6YTc6OWI6NTk6MDQ6YzU6MjM6ZDc6OTE6CiAgICAgICAgIDQ4OmE4OmEyOjc1OjFkOmRmOjcyOjI5OjU4OjRlOjcwOjc3OjkyOjExOjkwOmY2Ojc1OjFiOgogICAgICAgICBhYTplNjoyOTplMDowNDoxYzo3YTo4Yjo2Mzo1MzozNzoyMDpmNjowZjoyNDo1Mzo5YTo3NjoKICAgICAgICAgNGU6ZjE6ZjM6OTY6ZTc6OWY6YmI6NTE6Njc6ZTg6ZGI6NDk6YTk6MTI6Y2U6N2I6NDc6MWM6CiAgICAgICAgIDJjOmRkOjI0OjlhOmFjOjVjOjAwOjg3OjYwOjhmOjAyOmZmOjBlOmNkOjRiOjczOmZhOjljOgogICAgICAgICA5NzoxMzo5NDoxZDphMDpkNDplMTo2MDo2MjpjZTphMzpiOTo0NjoyMjpmMjpkMDpiMTpkZjoKICAgICAgICAgYmI6YWY6MWU6N2I6NTU6OTM6NzA6OWEKLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUhOekNDQlIrZ0F3SUJBZ0lJU1RRakNCRlptQll3RFFZSktvWklodmNOQVFFTEJRQXdXVEVMTUFrR0ExVUUKQmhNQ1FsSXhFekFSQmdOVkJBb1RDa2xEVUMxQ2NtRnphV3d4RlRBVEJnTlZCQXNUREVGRElGTlBURlZVU1NCMgpOVEVlTUJ3R0ExVUVBeE1WUVVNZ1UwOU1WVlJKSUUxMWJIUnBjR3hoSUhZMU1CNFhEVEl6TURneE1URTVORGd3Ck1Gb1hEVEkwTURneE1ERTVORGd3TUZvd2dkMHhDekFKQmdOVkJBWVRBa0pTTVJNd0VRWURWUVFLRXdwSlExQXQKUW5KaGMybHNNUXN3Q1FZRFZRUUlFd0pUUXpFUk1BOEdBMVVFQnhNSVFteDFiV1Z1WVhVeEhqQWNCZ05WQkFzVApGVUZESUZOUFRGVlVTU0JOZFd4MGFYQnNZU0IyTlRFWE1CVUdBMVVFQ3hNT01qYzJNVE13TnpJd01EQXhOakF4CkdUQVhCZ05WQkFzVEVGWnBaR1Z2WTI5dVptVnlaVzVqYVdFeEdqQVlCZ05WQkFzVEVVTmxjblJwWm1sallXUnYKSUZCS0lFRXhNU2t3SndZRFZRUURFeUJEVTFnZ1UwOU1WVU5QUlZNZ1RGUkVRVG95TVRjeU9ETTNOakF3TURFNQpOekNDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMVUVGbHc1Y0xZMTNXR1A1NE5kClc2THdtQVJUcjV3Z2haRk1JaVVqZEQ3NmdKS09xZmhZNC81NDlpeGJTRHQ4N3lNUG5meTRRZ3ZSb3FCcE1iTFkKY1pSbVAvclJXLzgvT05NNjRUU0I2dnBVSi9yaFBNcHlqTTF2QnlzQ1o3Lzh2blpIQk5KMnRSMzRjQ0ZtUHU0cgpmNFh5TTFib1AyWUg2YUlnaFFidDhIaTk3VXpDSmZqUHg2SWNvSjl6Z2pISE5tUjAveExaUm9FTVNGakVKcUIvCjNmSHExQ3hsWldCbUF2TWwzbDJLNGFFL0gxcFliSjlsWTBXNlpXTXdRTDFYWForb3dla2w1ZGN6ZHo1NkZRRW4KUE51Q0ZiMzJwMnRzWjNKc3hlNDh3aGpEeUVQUElwb3dzOXh6R3BYeXNxWGlLVUJEN1hYcFhPN3h5cFQ1eGRiZwpHWWtDQXdFQUFhT0NBbnd3Z2dKNE1Ba0dBMVVkRXdRQ01BQXdId1lEVlIwakJCZ3dGb0FVeFZMdEpZQUozNXlDCnlKOUh4dDIwWHpIZHViRXdWQVlJS3dZQkJRVUhBUUVFU0RCR01FUUdDQ3NHQVFVRkJ6QUNoamhvZEhSd09pOHYKWTJOa0xtRmpjMjlzZFhScExtTnZiUzVpY2k5c1kzSXZZV010YzI5c2RYUnBMVzExYkhScGNHeGhMWFkxTG5BMwpZakNCdHdZRFZSMFJCSUd2TUlHc2dSMW1hVzVoYm1ObGFYSnZRR056ZUhOdmJIVmpiMlZ6TG1OdmJTNWljcUFkCkJnVmdUQUVEQXFBVUV4SkRVa2xUVkVsQlRrOGdVMFZXUlZKSlRrK2dHUVlGWUV3QkF3T2dFQk1PTWpFM01qZ3oKTnpZd01EQXhPVGVnT0FZRllFd0JBd1NnTHhNdE1qUXdOREU1T0RZd05UQTFOekU1T0RrME56QXdNREF3TURBdwpNREF3TURBd01EQXdNREF3TURBd01EQXdvQmNHQldCTUFRTUhvQTRURERBd01EQXdNREF3TURBd01EQmRCZ05WCkhTQUVWakJVTUZJR0JtQk1BUUlCSmpCSU1FWUdDQ3NHQVFVRkJ3SUJGanBvZEhSd09pOHZZMk5rTG1GamMyOXMKZFhScExtTnZiUzVpY2k5a2IyTnpMMlJ3WXkxaFl5MXpiMngxZEdrdGJYVnNkR2x3YkdFdWNHUm1NQjBHQTFVZApKUVFXTUJRR0NDc0dBUVVGQndNQ0JnZ3JCZ0VGQlFjREJEQ0JqQVlEVlIwZkJJR0VNSUdCTUQ2Z1BLQTZoamhvCmRIUndPaTh2WTJOa0xtRmpjMjlzZFhScExtTnZiUzVpY2k5c1kzSXZZV010YzI5c2RYUnBMVzExYkhScGNHeGgKTFhZMUxtTnliREEvb0QyZ080WTVhSFIwY0RvdkwyTmpaREl1WVdOemIyeDFkR2t1WTI5dExtSnlMMnhqY2k5aApZeTF6YjJ4MWRHa3RiWFZzZEdsd2JHRXRkalV1WTNKc01CMEdBMVVkRGdRV0JCU0xUWmpvNUVzZWxBQzhPSnUyCmFlWWN0L1pJeWpBT0JnTlZIUThCQWY4RUJBTUNCZUF3RFFZSktvWklodmNOQVFFTEJRQURnZ0lCQUZSRzVwN3kKV0Q5WmQ0aUhncnFDR1g2ZEl0Z2FuaEdYdmpydlEzeXFMQ2xVU2dOa2FTT3UwenVXa2YyVkNhMWhROU9uQVk3QQpCdmszS1ZWdFN6Sk1QUXcyWndaaWxIWHhvTFc0RmgyczBpdHd1Wnp3MHk0MWR1Ty9ob09SVy9FeXpBRmxmVWRVCkt1aVJFRjhVRjVBbStYSFZmWW5ZQ3k2Rm1zc1UyeEZ5eWhQc2I5VVVTR2JDdFFDcEVNNUR6OXZHWE15bWZ3SnIKemo0bGtiek0yWTFGNThGUmFaQktQQ1R1TXVCOXBXTGUxaTBuSG9mYXN2TTRJclgrclNYLzhYZm91WHVuK2c0RApTWXNBakxsaEkwZFY1cmVtbzR0S1BWeWM3akVrOTBmREluMm55VGwyMjE1WmZISlZhTnN5bXRXVzh3b29VN3FlCkE1WU1mTVlrZ0djS1pVRm1WVE9FRFZoSUk0ZVk3aXdPVUFhM21ubUlJTkkvRnFDMk9Va09RYzFFTlZsVUJuaHAKcFpranpDZGpuTWU3LzR0Nmd1dW1BdnlkK2Y2OHZjVUU2Sm4wdmM3enVxSmRONmRQTW9nT0VPdU1nR0tqQW9uegpEbVB5K21Jc05wbTBURFFnTFRsYnhzVmFUVmpvUlI4a3VZcWxwT1E0RHBrR0dQVktvMElnTm1GN2E4OVFZR21LClhnOXZvTWdYblNybkRpYlpXTllJS1dTbm0xa0V4U1BYa1Vpb29uVWQzM0lwV0U1d2Q1SVJrUFoxRzZybUtlQUUKSEhxTFkxTTNJUFlQSkZPYWRrN3g4NWJubjd0UloramJTYWtTem50SEhDemRKSnFzWEFDSFlJOEMvdzdOUzNQNgpuSmNUbEIyZzFPRmdZczZqdVVZaTh0Q3gzN3V2SG50VmszQ2EKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+                                        </xd:X509Certificate>
+                                    </xd:X509Data>
+                                </xd:KeyInfo>
+                            </xd:Signature>
+                        </nfse:Rps>
+                    </nfse:ListaRps>
+                </nfse:LoteRps>
+                <xd:Signature>
+                    <xd:SignedInfo>
+                        <xd:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                        <xd:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                        <xd:Reference>
+                            <xd:Transforms>
+                                <xd:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                                <xd:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                            </xd:Transforms>
+                            <xd:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                            <xd:DigestValue>cv3IjlGPL0cKhq678VxLv+fsmog=</xd:DigestValue>
+                        </xd:Reference>
+                    </xd:SignedInfo>
+                    <xd:SignatureValue>
+                        cbN4ikMMvS67y9K6PvqM6lDuaCj1IVCWH2lb6+k9La4Yr+JVBnO1M2QYJTpD58q9Riu9HRXGWxqbg1w/KHEwpW++HA6/keaJpd8UJ3og9ZDh5sA2Tm8U1iTUhqqgI803Fwj34K+Dsit8BYBq0T0G7nzsEl9FEYEb8pf5Pg3aKNajcSTpOePuN/uF9FZMzfqmQqkf8/7fEQRTb3eW9pK6mhhYS2j7PsWTF870x4IYVlyMBqmX0tvc+b4uog+fKQcHxYW60TWEExw4wd+AINYwqRpc1IjLLAzT0wUQKH/5FUmuKMBOObuK2TWdNuF29SXj5NM7IAozCYAKux5YDL7dHg==
+                    </xd:SignatureValue>
+                    <xd:KeyInfo>
+                        <xd:X509Data>
+                            <xd:X509Certificate>
+                                Q2VydGlmaWNhdGU6CiAgICBEYXRhOgogICAgICAgIFZlcnNpb246IDMgKDB4MikKICAgICAgICBTZXJpYWwgTnVtYmVyOgogICAgICAgICAgICA0OTozNDoyMzowODoxMTo1OTo5ODoxNgogICAgICAgIFNpZ25hdHVyZSBBbGdvcml0aG06IHNoYTI1NldpdGhSU0FFbmNyeXB0aW9uCiAgICAgICAgSXNzdWVyOiBDPUJSLCBPPUlDUC1CcmFzaWwsIE9VPUFDIFNPTFVUSSB2NSwgQ049QUMgU09MVVRJIE11bHRpcGxhIHY1CiAgICAgICAgVmFsaWRpdHkKICAgICAgICAgICAgTm90IEJlZm9yZTogQXVnIDExIDE5OjQ4OjAwIDIwMjMgR01UCiAgICAgICAgICAgIE5vdCBBZnRlciA6IEF1ZyAxMCAxOTo0ODowMCAyMDI0IEdNVAogICAgICAgIFN1YmplY3Q6IEM9QlIsIE89SUNQLUJyYXNpbCwgU1Q9U0MsIEw9Qmx1bWVuYXUsIE9VPUFDIFNPTFVUSSBNdWx0aXBsYSB2NSwgT1U9Mjc2MTMwNzIwMDAxNjAsIE9VPVZpZGVvY29uZmVyZW5jaWEsIE9VPUNlcnRpZmljYWRvIFBKIEExLCBDTj1DU1ggU09MVUNPRVMgTFREQToyMTcyODM3NjAwMDE5NwogICAgICAgIFN1YmplY3QgUHVibGljIEtleSBJbmZvOgogICAgICAgICAgICBQdWJsaWMgS2V5IEFsZ29yaXRobTogcnNhRW5jcnlwdGlvbgogICAgICAgICAgICAgICAgUlNBIFB1YmxpYy1LZXk6ICgyMDQ4IGJpdCkKICAgICAgICAgICAgICAgIE1vZHVsdXM6CiAgICAgICAgICAgICAgICAgICAgMDA6YjU6MDQ6MTY6NWM6Mzk6NzA6YjY6MzU6ZGQ6NjE6OGY6ZTc6ODM6NWQ6CiAgICAgICAgICAgICAgICAgICAgNWI6YTI6ZjA6OTg6MDQ6NTM6YWY6OWM6MjA6ODU6OTE6NGM6MjI6MjU6MjM6CiAgICAgICAgICAgICAgICAgICAgNzQ6M2U6ZmE6ODA6OTI6OGU6YTk6Zjg6NTg6ZTM6ZmU6Nzg6ZjY6MmM6NWI6CiAgICAgICAgICAgICAgICAgICAgNDg6M2I6N2M6ZWY6MjM6MGY6OWQ6ZmM6Yjg6NDI6MGI6ZDE6YTI6YTA6Njk6CiAgICAgICAgICAgICAgICAgICAgMzE6YjI6ZDg6NzE6OTQ6NjY6M2Y6ZmE6ZDE6NWI6ZmY6M2Y6Mzg6ZDM6M2E6CiAgICAgICAgICAgICAgICAgICAgZTE6MzQ6ODE6ZWE6ZmE6NTQ6Mjc6ZmE6ZTE6M2M6Y2E6NzI6OGM6Y2Q6NmY6CiAgICAgICAgICAgICAgICAgICAgMDc6MmI6MDI6Njc6YmY6ZmM6YmU6NzY6NDc6MDQ6ZDI6NzY6YjU6MWQ6Zjg6CiAgICAgICAgICAgICAgICAgICAgNzA6MjE6NjY6M2U6ZWU6MmI6N2Y6ODU6ZjI6MzM6NTY6ZTg6M2Y6NjY6MDc6CiAgICAgICAgICAgICAgICAgICAgZTk6YTI6MjA6ODU6MDY6ZWQ6ZjA6Nzg6YmQ6ZWQ6NGM6YzI6MjU6Zjg6Y2Y6CiAgICAgICAgICAgICAgICAgICAgYzc6YTI6MWM6YTA6OWY6NzM6ODI6MzE6Yzc6MzY6NjQ6NzQ6ZmY6MTI6ZDk6CiAgICAgICAgICAgICAgICAgICAgNDY6ODE6MGM6NDg6NTg6YzQ6MjY6YTA6N2Y6ZGQ6ZjE6ZWE6ZDQ6MmM6NjU6CiAgICAgICAgICAgICAgICAgICAgNjU6NjA6NjY6MDI6ZjM6MjU6ZGU6NWQ6OGE6ZTE6YTE6M2Y6MWY6NWE6NTg6CiAgICAgICAgICAgICAgICAgICAgNmM6OWY6NjU6NjM6NDU6YmE6NjU6NjM6MzA6NDA6YmQ6NTc6NWQ6OWY6YTg6CiAgICAgICAgICAgICAgICAgICAgYzE6ZTk6MjU6ZTU6ZDc6MzM6Nzc6M2U6N2E6MTU6MDE6Mjc6M2M6ZGI6ODI6CiAgICAgICAgICAgICAgICAgICAgMTU6YmQ6ZjY6YTc6NmI6NmM6Njc6NzI6NmM6YzU6ZWU6M2M6YzI6MTg6YzM6CiAgICAgICAgICAgICAgICAgICAgYzg6NDM6Y2Y6MjI6OWE6MzA6YjM6ZGM6NzM6MWE6OTU6ZjI6YjI6YTU6ZTI6CiAgICAgICAgICAgICAgICAgICAgMjk6NDA6NDM6ZWQ6NzU6ZTk6NWM6ZWU6ZjE6Y2E6OTQ6Zjk6YzU6ZDY6ZTA6CiAgICAgICAgICAgICAgICAgICAgMTk6ODkKICAgICAgICAgICAgICAgIEV4cG9uZW50OiA2NTUzNyAoMHgxMDAwMSkKICAgICAgICBYNTA5djMgZXh0ZW5zaW9uczoKICAgICAgICAgICAgWDUwOXYzIEJhc2ljIENvbnN0cmFpbnRzOiAKICAgICAgICAgICAgICAgIENBOkZBTFNFCiAgICAgICAgICAgIFg1MDl2MyBBdXRob3JpdHkgS2V5IElkZW50aWZpZXI6IAogICAgICAgICAgICAgICAga2V5aWQ6QzU6NTI6RUQ6MjU6ODA6MDk6REY6OUM6ODI6Qzg6OUY6NDc6QzY6REQ6QjQ6NUY6MzE6REQ6Qjk6QjEKCiAgICAgICAgICAgIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBBY2Nlc3M6IAogICAgICAgICAgICAgICAgQ0EgSXNzdWVycyAtIFVSSTpodHRwOi8vY2NkLmFjc29sdXRpLmNvbS5ici9sY3IvYWMtc29sdXRpLW11bHRpcGxhLXY1LnA3YgoKICAgICAgICAgICAgWDUwOXYzIFN1YmplY3QgQWx0ZXJuYXRpdmUgTmFtZTogCiAgICAgICAgICAgICAgICBlbWFpbDpmaW5hbmNlaXJvQGNzeHNvbHVjb2VzLmNvbS5iciwgb3RoZXJuYW1lOjx1bnN1cHBvcnRlZD4sIG90aGVybmFtZTo8dW5zdXBwb3J0ZWQ+LCBvdGhlcm5hbWU6PHVuc3VwcG9ydGVkPiwgb3RoZXJuYW1lOjx1bnN1cHBvcnRlZD4KICAgICAgICAgICAgWDUwOXYzIENlcnRpZmljYXRlIFBvbGljaWVzOiAKICAgICAgICAgICAgICAgIFBvbGljeTogMi4xNi43Ni4xLjIuMS4zOAogICAgICAgICAgICAgICAgICBDUFM6IGh0dHA6Ly9jY2QuYWNzb2x1dGkuY29tLmJyL2RvY3MvZHBjLWFjLXNvbHV0aS1tdWx0aXBsYS5wZGYKCiAgICAgICAgICAgIFg1MDl2MyBFeHRlbmRlZCBLZXkgVXNhZ2U6IAogICAgICAgICAgICAgICAgVExTIFdlYiBDbGllbnQgQXV0aGVudGljYXRpb24sIEUtbWFpbCBQcm90ZWN0aW9uCiAgICAgICAgICAgIFg1MDl2MyBDUkwgRGlzdHJpYnV0aW9uIFBvaW50czogCgogICAgICAgICAgICAgICAgRnVsbCBOYW1lOgogICAgICAgICAgICAgICAgICBVUkk6aHR0cDovL2NjZC5hY3NvbHV0aS5jb20uYnIvbGNyL2FjLXNvbHV0aS1tdWx0aXBsYS12NS5jcmwKCiAgICAgICAgICAgICAgICBGdWxsIE5hbWU6CiAgICAgICAgICAgICAgICAgIFVSSTpodHRwOi8vY2NkMi5hY3NvbHV0aS5jb20uYnIvbGNyL2FjLXNvbHV0aS1tdWx0aXBsYS12NS5jcmwKCiAgICAgICAgICAgIFg1MDl2MyBTdWJqZWN0IEtleSBJZGVudGlmaWVyOiAKICAgICAgICAgICAgICAgIDhCOjREOjk4OkU4OkU0OjRCOjFFOjk0OjAwOkJDOjM4OjlCOkI2OjY5OkU2OjFDOkI3OkY2OjQ4OkNBCiAgICAgICAgICAgIFg1MDl2MyBLZXkgVXNhZ2U6IGNyaXRpY2FsCiAgICAgICAgICAgICAgICBEaWdpdGFsIFNpZ25hdHVyZSwgTm9uIFJlcHVkaWF0aW9uLCBLZXkgRW5jaXBoZXJtZW50CiAgICBTaWduYXR1cmUgQWxnb3JpdGhtOiBzaGEyNTZXaXRoUlNBRW5jcnlwdGlvbgogICAgICAgICA1NDo0NjplNjo5ZTpmMjo1ODozZjo1OTo3Nzo4ODo4Nzo4MjpiYTo4MjoxOTo3ZTo5ZDoyMjoKICAgICAgICAgZDg6MWE6OWU6MTE6OTc6YmU6M2E6ZWY6NDM6N2M6YWE6MmM6Mjk6NTQ6NGE6MDM6NjQ6Njk6CiAgICAgICAgIDIzOmFlOmQzOjNiOjk2OjkxOmZkOjk1OjA5OmFkOjYxOjQzOmQzOmE3OjAxOjhlOmMwOjA2OgogICAgICAgICBmOTozNzoyOTo1NTo2ZDo0YjozMjo0YzozZDowYzozNjo2NzowNjo2Mjo5NDo3NTpmMTphMDoKICAgICAgICAgYjU6Yjg6MTY6MWQ6YWM6ZDI6MmI6NzA6Yjk6OWM6ZjA6ZDM6MmU6MzU6NzY6ZTM6YmY6ODY6CiAgICAgICAgIDgzOjkxOjViOmYxOjMyOmNjOjAxOjY1OjdkOjQ3OjU0OjJhOmU4OjkxOjEwOjVmOjE0OjE3OgogICAgICAgICA5MDoyNjpmOTo3MTpkNTo3ZDo4OTpkODowYjoyZTo4NTo5YTpjYjoxNDpkYjoxMTo3MjpjYToKICAgICAgICAgMTM6ZWM6NmY6ZDU6MTQ6NDg6NjY6YzI6YjU6MDA6YTk6MTA6Y2U6NDM6Y2Y6ZGI6YzY6NWM6CiAgICAgICAgIGNjOmE2OjdmOjAyOjZiOmNlOjNlOjI1OjkxOmJjOmNjOmQ5OjhkOjQ1OmU3OmMxOjUxOjY5OgogICAgICAgICA5MDo0YTozYzoyNDplZTozMjplMDo3ZDphNTo2MjpkZTpkNjoyZDoyNzoxZTo4NzpkYTpiMjoKICAgICAgICAgZjM6Mzg6MjI6YjU6ZmU6YWQ6MjU6ZmY6ZjE6Nzc6ZTg6Yjk6N2I6YTc6ZmE6MGU6MDM6NDk6CiAgICAgICAgIDhiOjAwOjhjOmI5OjYxOjIzOjQ3OjU1OmU2OmI3OmE2OmEzOjhiOjRhOjNkOjVjOjljOmVlOgogICAgICAgICAzMToyNDpmNzo0NzpjMzoyMjo3ZDphNzpjOTozOTo3NjpkYjo1ZTo1OTo3Yzo3Mjo1NTo2ODoKICAgICAgICAgZGI6MzI6OWE6ZDU6OTY6ZjM6MGE6Mjg6NTM6YmE6OWU6MDM6OTY6MGM6N2M6YzY6MjQ6ODA6CiAgICAgICAgIDY3OjBhOjY1OjQxOjY2OjU1OjMzOjg0OjBkOjU4OjQ4OjIzOjg3Ojk4OmVlOjJjOjBlOjUwOgogICAgICAgICAwNjpiNzo5YTo3OTo4ODoyMDpkMjozZjoxNjphMDpiNjozOTo0OTowZTo0MTpjZDo0NDozNToKICAgICAgICAgNTk6NTQ6MDY6Nzg6Njk6YTU6OTk6MjM6Y2M6Mjc6NjM6OWM6Yzc6YmI6ZmY6OGI6N2E6ODI6CiAgICAgICAgIGViOmE2OjAyOmZjOjlkOmY5OmZlOmJjOmJkOmM1OjA0OmU4Ojk5OmY0OmJkOmNlOmYzOmJhOgogICAgICAgICBhMjo1ZDozNzphNzo0ZjozMjo4ODowZToxMDplYjo4Yzo4MDo2MjphMzowMjo4OTpmMzowZToKICAgICAgICAgNjM6ZjI6ZmE6NjI6MmM6MzY6OTk6YjQ6NGM6MzQ6MjA6MmQ6Mzk6NWI6YzY6YzU6NWE6NGQ6CiAgICAgICAgIDU4OmU4OjQ1OjFmOjI0OmI5OjhhOmE1OmE0OmU0OjM4OjBlOjk5OjA2OjE4OmY1OjRhOmEzOgogICAgICAgICA0MjoyMDozNjo2MTo3Yjo2YjpjZjo1MDo2MDo2OTo4YTo1ZTowZjo2ZjphMDpjODoxNzo5ZDoKICAgICAgICAgMmE6ZTc6MGU6MjY6ZDk6NTg6ZDY6MDg6Mjk6NjQ6YTc6OWI6NTk6MDQ6YzU6MjM6ZDc6OTE6CiAgICAgICAgIDQ4OmE4OmEyOjc1OjFkOmRmOjcyOjI5OjU4OjRlOjcwOjc3OjkyOjExOjkwOmY2Ojc1OjFiOgogICAgICAgICBhYTplNjoyOTplMDowNDoxYzo3YTo4Yjo2Mzo1MzozNzoyMDpmNjowZjoyNDo1Mzo5YTo3NjoKICAgICAgICAgNGU6ZjE6ZjM6OTY6ZTc6OWY6YmI6NTE6Njc6ZTg6ZGI6NDk6YTk6MTI6Y2U6N2I6NDc6MWM6CiAgICAgICAgIDJjOmRkOjI0OjlhOmFjOjVjOjAwOjg3OjYwOjhmOjAyOmZmOjBlOmNkOjRiOjczOmZhOjljOgogICAgICAgICA5NzoxMzo5NDoxZDphMDpkNDplMTo2MDo2MjpjZTphMzpiOTo0NjoyMjpmMjpkMDpiMTpkZjoKICAgICAgICAgYmI6YWY6MWU6N2I6NTU6OTM6NzA6OWEKLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUhOekNDQlIrZ0F3SUJBZ0lJU1RRakNCRlptQll3RFFZSktvWklodmNOQVFFTEJRQXdXVEVMTUFrR0ExVUUKQmhNQ1FsSXhFekFSQmdOVkJBb1RDa2xEVUMxQ2NtRnphV3d4RlRBVEJnTlZCQXNUREVGRElGTlBURlZVU1NCMgpOVEVlTUJ3R0ExVUVBeE1WUVVNZ1UwOU1WVlJKSUUxMWJIUnBjR3hoSUhZMU1CNFhEVEl6TURneE1URTVORGd3Ck1Gb1hEVEkwTURneE1ERTVORGd3TUZvd2dkMHhDekFKQmdOVkJBWVRBa0pTTVJNd0VRWURWUVFLRXdwSlExQXQKUW5KaGMybHNNUXN3Q1FZRFZRUUlFd0pUUXpFUk1BOEdBMVVFQnhNSVFteDFiV1Z1WVhVeEhqQWNCZ05WQkFzVApGVUZESUZOUFRGVlVTU0JOZFd4MGFYQnNZU0IyTlRFWE1CVUdBMVVFQ3hNT01qYzJNVE13TnpJd01EQXhOakF4CkdUQVhCZ05WQkFzVEVGWnBaR1Z2WTI5dVptVnlaVzVqYVdFeEdqQVlCZ05WQkFzVEVVTmxjblJwWm1sallXUnYKSUZCS0lFRXhNU2t3SndZRFZRUURFeUJEVTFnZ1UwOU1WVU5QUlZNZ1RGUkVRVG95TVRjeU9ETTNOakF3TURFNQpOekNDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMVUVGbHc1Y0xZMTNXR1A1NE5kClc2THdtQVJUcjV3Z2haRk1JaVVqZEQ3NmdKS09xZmhZNC81NDlpeGJTRHQ4N3lNUG5meTRRZ3ZSb3FCcE1iTFkKY1pSbVAvclJXLzgvT05NNjRUU0I2dnBVSi9yaFBNcHlqTTF2QnlzQ1o3Lzh2blpIQk5KMnRSMzRjQ0ZtUHU0cgpmNFh5TTFib1AyWUg2YUlnaFFidDhIaTk3VXpDSmZqUHg2SWNvSjl6Z2pISE5tUjAveExaUm9FTVNGakVKcUIvCjNmSHExQ3hsWldCbUF2TWwzbDJLNGFFL0gxcFliSjlsWTBXNlpXTXdRTDFYWForb3dla2w1ZGN6ZHo1NkZRRW4KUE51Q0ZiMzJwMnRzWjNKc3hlNDh3aGpEeUVQUElwb3dzOXh6R3BYeXNxWGlLVUJEN1hYcFhPN3h5cFQ1eGRiZwpHWWtDQXdFQUFhT0NBbnd3Z2dKNE1Ba0dBMVVkRXdRQ01BQXdId1lEVlIwakJCZ3dGb0FVeFZMdEpZQUozNXlDCnlKOUh4dDIwWHpIZHViRXdWQVlJS3dZQkJRVUhBUUVFU0RCR01FUUdDQ3NHQVFVRkJ6QUNoamhvZEhSd09pOHYKWTJOa0xtRmpjMjlzZFhScExtTnZiUzVpY2k5c1kzSXZZV010YzI5c2RYUnBMVzExYkhScGNHeGhMWFkxTG5BMwpZakNCdHdZRFZSMFJCSUd2TUlHc2dSMW1hVzVoYm1ObGFYSnZRR056ZUhOdmJIVmpiMlZ6TG1OdmJTNWljcUFkCkJnVmdUQUVEQXFBVUV4SkRVa2xUVkVsQlRrOGdVMFZXUlZKSlRrK2dHUVlGWUV3QkF3T2dFQk1PTWpFM01qZ3oKTnpZd01EQXhPVGVnT0FZRllFd0JBd1NnTHhNdE1qUXdOREU1T0RZd05UQTFOekU1T0RrME56QXdNREF3TURBdwpNREF3TURBd01EQXdNREF3TURBd01EQXdvQmNHQldCTUFRTUhvQTRURERBd01EQXdNREF3TURBd01EQmRCZ05WCkhTQUVWakJVTUZJR0JtQk1BUUlCSmpCSU1FWUdDQ3NHQVFVRkJ3SUJGanBvZEhSd09pOHZZMk5rTG1GamMyOXMKZFhScExtTnZiUzVpY2k5a2IyTnpMMlJ3WXkxaFl5MXpiMngxZEdrdGJYVnNkR2x3YkdFdWNHUm1NQjBHQTFVZApKUVFXTUJRR0NDc0dBUVVGQndNQ0JnZ3JCZ0VGQlFjREJEQ0JqQVlEVlIwZkJJR0VNSUdCTUQ2Z1BLQTZoamhvCmRIUndPaTh2WTJOa0xtRmpjMjlzZFhScExtTnZiUzVpY2k5c1kzSXZZV010YzI5c2RYUnBMVzExYkhScGNHeGgKTFhZMUxtTnliREEvb0QyZ080WTVhSFIwY0RvdkwyTmpaREl1WVdOemIyeDFkR2t1WTI5dExtSnlMMnhqY2k5aApZeTF6YjJ4MWRHa3RiWFZzZEdsd2JHRXRkalV1WTNKc01CMEdBMVVkRGdRV0JCU0xUWmpvNUVzZWxBQzhPSnUyCmFlWWN0L1pJeWpBT0JnTlZIUThCQWY4RUJBTUNCZUF3RFFZSktvWklodmNOQVFFTEJRQURnZ0lCQUZSRzVwN3kKV0Q5WmQ0aUhncnFDR1g2ZEl0Z2FuaEdYdmpydlEzeXFMQ2xVU2dOa2FTT3UwenVXa2YyVkNhMWhROU9uQVk3QQpCdmszS1ZWdFN6Sk1QUXcyWndaaWxIWHhvTFc0RmgyczBpdHd1Wnp3MHk0MWR1Ty9ob09SVy9FeXpBRmxmVWRVCkt1aVJFRjhVRjVBbStYSFZmWW5ZQ3k2Rm1zc1UyeEZ5eWhQc2I5VVVTR2JDdFFDcEVNNUR6OXZHWE15bWZ3SnIKemo0bGtiek0yWTFGNThGUmFaQktQQ1R1TXVCOXBXTGUxaTBuSG9mYXN2TTRJclgrclNYLzhYZm91WHVuK2c0RApTWXNBakxsaEkwZFY1cmVtbzR0S1BWeWM3akVrOTBmREluMm55VGwyMjE1WmZISlZhTnN5bXRXVzh3b29VN3FlCkE1WU1mTVlrZ0djS1pVRm1WVE9FRFZoSUk0ZVk3aXdPVUFhM21ubUlJTkkvRnFDMk9Va09RYzFFTlZsVUJuaHAKcFpranpDZGpuTWU3LzR0Nmd1dW1BdnlkK2Y2OHZjVUU2Sm4wdmM3enVxSmRONmRQTW9nT0VPdU1nR0tqQW9uegpEbVB5K21Jc05wbTBURFFnTFRsYnhzVmFUVmpvUlI4a3VZcWxwT1E0RHBrR0dQVktvMElnTm1GN2E4OVFZR21LClhnOXZvTWdYblNybkRpYlpXTllJS1dTbm0xa0V4U1BYa1Vpb29uVWQzM0lwV0U1d2Q1SVJrUFoxRzZybUtlQUUKSEhxTFkxTTNJUFlQSkZPYWRrN3g4NWJubjd0UloramJTYWtTem50SEhDemRKSnFzWEFDSFlJOEMvdzdOUzNQNgpuSmNUbEIyZzFPRmdZczZqdVVZaTh0Q3gzN3V2SG50VmszQ2EKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+                            </xd:X509Certificate>
+                        </xd:X509Data>
+                    </xd:KeyInfo>
+                </xd:Signature>
+            </sis:EnviarLoteRpsEnvio>
+        </sis:RecepcionarLoteRps>
+    </soapenv:Body>
+</soapenv:Envelope>

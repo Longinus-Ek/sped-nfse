@@ -7,6 +7,8 @@ use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
 use DOMDocument;
+use Imagick;
+use ImagickDraw;
 use Mpdf\Mpdf;
 use Mpdf\MpdfException;
 use NFSePHP\NFSe\Traits\Getter;
@@ -48,8 +50,9 @@ class Danfse extends Mpdf
 
     /**
      * @throws MpdfException
+     * @throws \Exception
      */
-    public function generatePDF()
+    public function generatePDF($status = 'CANCELADA')
     {
         $xmlElement = new DOMDocument();
         $xmlElement->loadXML($this->xml);
@@ -85,10 +88,17 @@ class Danfse extends Mpdf
         $objXml->competencia = $competencia;
         $objXml->servico = $servico;
         $objXml->tomador = $tomador;
-        $objXml->regimeEspecialTributacao = $regimeEspecialTributacao;
+        $listRET = [
+            "1" => "Microempresa municipal",
+            "2" => "Estimativa",
+            "3" => "Sociedade de profissionais",
+            "4" => "Cooperativa",
+            "5" => "Microempresário Individual (MEI)",
+            "6" => "Microempresário e Empresa de Pequeno Porte (ME EPP)",
+        ];
+        $objXml->regimeEspecialTributacao = $listRET[$regimeEspecialTributacao];
         $objXml->optanteSimplesNacional = $optanteSimplesNacional;
         $objXml->incentivoFiscal = $incentivoFiscal;
-
 
         $cidade = $this->GetMunicipioName($objXml->prestador->Endereco->CodigoMunicipio);
         $cidade = mb_strtoupper($cidade);
@@ -123,7 +133,7 @@ class Danfse extends Mpdf
         $qrCode = $writer->writeString($linkGeneratePdf);
         $base64qr = base64_encode($qrCode);
 
-        $imagemPath = base_path('packages/sped-nfse/nfse/img/'.mb_strtolower($cidade).'.png');
+        $imagemPath = __DIR__ . '/img/'.mb_strtolower($cidade).'.png';
         $base64 = base64_encode(file_get_contents($imagemPath));
         $base64Logo = base64_encode($this->logo);
 
@@ -132,6 +142,20 @@ class Danfse extends Mpdf
         if($infoImage !== false){
             $contentMime = $infoImage['mime'];
         }
+
+        $inscricaoT = 'Não Informado';
+        if(isset($objXml->tomador->IdentificacaoTomador->InscricaoMunicipal)){
+            $inscricaoT = $objXml->tomador->IdentificacaoTomador->InscricaoMunicipal;
+        }
+
+
+        $documentoTomador = 'Não Informado';
+        if(isset($objXml->tomador->IdentificacaoTomador->CpfCnpj->Cnpj)){
+            $documentoTomador = preg_replace('/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/', '$1.$2.$3/$4-$5', $objXml->tomador->IdentificacaoTomador->CpfCnpj->Cnpj);
+        }else if(isset($objXml->tomador->IdentificacaoTomador->CpfCnpj->Cpf)){
+            $documentoTomador = preg_replace('/^(\d{3})(\d{3})(\d{3})(\d{2})$/', '$1.$2.$3-$4', $objXml->tomador->IdentificacaoTomador->CpfCnpj->Cpf);
+        }
+
 
         $content = '<!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
@@ -250,7 +274,7 @@ class Danfse extends Mpdf
                         <img src="data:image/png;base64,' . $base64 . '" alt="Brasão do Município" style="width: 80px; height: 80px;">
                     </td>
                     <td style="text-align: center">
-                        <p class="s1">MUNICÍPIO DE BLUMENAU</p>
+                        <p class="s1">MUNICÍPIO DE '.mb_strtoupper($cidade).'</p>
                         <p class="s1">SECRETARIA MUNICIPAL DA FAZENDA</p>
                         <p class="s1">DIRETORIA GERAL</p>
                         <p class="s1">DIRETORIA DE RECEITA</p>
@@ -280,12 +304,12 @@ class Danfse extends Mpdf
                 </tr>
                 <tr>
                     <td colspan="2" style="border-bottom: solid 1pt black;text-align: center;">
-                        <p class="s3">845</p>
+                        <p class="s3">'.$objXml->numero.'</p>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" style="border-bottom: solid 1pt black;text-align: center;">
-                        <p class="s2">Série: <b>E</b></p>
+                        <p class="s2">Série: <b>'.$objXml->rps->IdentificacaoRps->Serie.'</b></p>
                     </td>
                 </tr>
                 <tr>
@@ -300,7 +324,7 @@ class Danfse extends Mpdf
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">
-                        <p class="s4">AE5047425</p>
+                        <p class="s4">'.$objXml->codigoVerificacao.'</p>
                     </td>
                 </tr>
                 </tbody>
@@ -321,20 +345,20 @@ class Danfse extends Mpdf
                         <img src="data:' . $contentMime . ';base64,' . $base64Logo . '" alt="Logo da Empresa" style="width: 100px; height: 95px">
                     </td>
                     <td style="text-align: left">
-                        <p class="s5">Nome/Razão Social: <b>CSX SOLUÇÕES LTDA</b></p>
-                        <p class="s5">Nome Fantasia: <b>CSX SOLUÇÕES LTDA</b></p>
-                        <p class="s5">CNPJ/CPF: <b>21.728.376/0001-97</b></p>
-                        <p class="s5">Endereço: <b>BOTUVERA</b></p>
-                        <p class="s5">Bairro: <b>ITOUPAVAZINHA</b></p>
-                        <p class="s5">Municipio: <b>BLUMENAU </b> | País: <b>BRASIL</b></p>
-                        <p class="s5">Insc. Municipal: <b>110675</b> | Insc. Estadual: <b>110675</b></p>
+                        <p class="s5">Nome/Razão Social: <b>'.$objXml->prestador->RazaoSocial.'</b></p>
+                        <p class="s5">Nome Fantasia: <b>'.$objXml->prestador->NomeFantasia.'</b></p>
+                        <p class="s5">CNPJ/CPF: <b>'.preg_replace('/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/', '$1.$2.$3/$4-$5', $objXml->prestador->IdentificacaoPrestador->CpfCnpj->Cnpj).'</b></p>
+                        <p class="s5">Endereço: <b>'.mb_strtoupper($objXml->prestador->Endereco->Endereco).'</b></p>
+                        <p class="s5">Bairro: <b>'.mb_strtoupper($objXml->prestador->Endereco->Bairro).'</b></p>
+                        <p class="s5">Municipio: <b>'.mb_strtoupper($this->GetMunicipioName($objXml->prestador->Endereco->CodigoMunicipio)).'</b> | País: <b>BRASIL</b></p>
+                        <p class="s5">Insc. Municipal: <b>'.$objXml->prestador->IdentificacaoPrestador->InscricaoMunicipal.'</b></p>
                     </td>
                     <td style="text-align: right">
-                        <p class="s5">N°: <b>508</b></p>
-                        <p class="s5">Complemento: <b>SALA 101</b></p>
-                        <p class="s5">UF: <b>SC </b> | CEP: <b>89066-360</b></p>
-                        <p class="s5">Telefone: <b>4733084515</b></p>
-                        <p class="s5">E-mail: <b>nfe@csxsolucoes.com.br</b></p>
+                        <p class="s5">N°: <b>'.$objXml->prestador->Endereco->Numero.'</b></p>
+                        <p class="s5">Complemento: <b>'.mb_strtoupper($objXml->prestador->Endereco->Complemento).'</b></p>
+                        <p class="s5">UF: <b>'.$objXml->prestador->Endereco->Uf.'</b> | CEP: <b>'.preg_replace('/^(\d{5})(\d{3})$/', '$1-$2', $objXml->prestador->Endereco->Cep).'</b></p>
+                        <p class="s5">Telefone: <b>'.$objXml->prestador->Contato->Telefone.'</b></p>
+                        <p class="s5">E-mail: <b>'.$objXml->prestador->Contato->Email.'</b></p>
                     </td>
                 </tr>
             </table>
@@ -350,20 +374,20 @@ class Danfse extends Mpdf
             <table style="width: 100%">
                 <tr>
                     <td style="text-align: left">
-                        <p class="s5">Nome/Razão Social: <b>CSX SOLUÇÕES LTDA</b></p>
-                        <p class="s5">Nome Fantasia: <b>CSX SOLUÇÕES LTDA</b></p>
-                        <p class="s5">CNPJ/CPF: <b>21.728.376/0001-97</b></p>
-                        <p class="s5">Endereço: <b>BOTUVERA</b></p>
-                        <p class="s5">Bairro: <b>ITOUPAVAZINHA</b></p>
-                        <p class="s5">Municipio: <b>BLUMENAU </b> | País: <b>BRASIL</b></p>
-                        <p class="s5">Insc. Municipal: <b>110675</b> | Insc. Estadual: <b>110675</b></p>
+                        <p class="s5">Nome/Razão Social: <b>'.$objXml->tomador->RazaoSocial.'</b></p>
+                        <p class="s5">Nome Fantasia: <b>'.$objXml->tomador->RazaoSocial.'</b></p>
+                        <p class="s5">CNPJ/CPF: <b>'. $documentoTomador .'</b></p>
+                        <p class="s5">Endereço: <b>'.mb_strtoupper($objXml->tomador->Endereco->Endereco).'</b></p>
+                        <p class="s5">Bairro: <b>'.mb_strtoupper($objXml->tomador->Endereco->Bairro).'</b></p>
+                        <p class="s5">Municipio: <b>'.mb_strtoupper($this->GetMunicipioName($objXml->tomador->Endereco->CodigoMunicipio)).'</b> | País: <b>BRASIL</b></p>
+                        <p class="s5">Insc. Municipal: <b>'.$inscricaoT.'</b></p>
                     </td>
                     <td style="text-align: right">
-                        <p class="s5">N°: <b>508</b></p>
-                        <p class="s5">Complemento: <b>SALA 101</b></p>
-                        <p class="s5">UF: <b>SC </b> | CEP: <b>89066-360</b></p>
-                        <p class="s5">Telefone: <b>4733084515</b></p>
-                        <p class="s5">E-mail: <b>nfe@csxsolucoes.com.br</b></p>
+                        <p class="s5">N°: <b>'.$objXml->tomador->Endereco->Numero.'</b></p>
+                        <p class="s5">Complemento: <b>'.mb_strtoupper($objXml->tomador->Endereco->Complemento).'</b></p>
+                        <p class="s5">UF: <b>'.$objXml->tomador->Endereco->Uf.'</b> | CEP: <b>' . preg_replace('/^(\d{5})(\d{3})$/', '$1-$2', $objXml->tomador->Endereco->Cep) . '</b></p>
+                        <p class="s5">Telefone: <b>'.$objXml->tomador->Contato->Telefone.'</b></p>
+                        <p class="s5">E-mail: <b>'.$objXml->tomador->Contato->Email.'</b></p>
                     </td>
                 </tr>
             </table>
@@ -375,7 +399,7 @@ class Danfse extends Mpdf
     </tr>
     <tr style="height:182pt">
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="6">
-            <p class="s7">DESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00aDESENVOLVIMENTO DE SISTEMA - OS001224 - R$ 350,00a</p>
+            <p class="s7">'.$objXml->servico->Discriminacao.'</p>
         </td>
     </tr>
     <tr style="height:20pt">
@@ -383,7 +407,7 @@ class Danfse extends Mpdf
             <p class="s4-sm">VALOR BRUTO DA NOTA</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: right;">
-            <p class="s4">R$ 350,00</p>
+            <p class="s4">R$ '.number_format(floatval($objXml->valoresNfse->BaseCalculo), 2, ',','.').'</p>
         </td>
     </tr>
     <tr style="height:22pt">
@@ -401,37 +425,37 @@ class Danfse extends Mpdf
         </td>
         <td style="width: 125px;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
             <p class="s5">Base de Cálculo:</p>
-            <p class="s1">R$ 350,00</p>
+            <p class="s1">R$ '.number_format(floatval($objXml->valoresNfse->BaseCalculo), 2, ',','.').'</p>
         </td>
         <td style="width: 125px;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
             <p class="s5">Alíquota:</p>
-            <p class="s1">2,0000%</p>
+            <p class="s1">'.number_format(floatval($objXml->valoresNfse->Aliquota), 4).'%</p>
         </td>
         <td style="width: 125px;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
             <p class="s5">Valor do ISS:</p>
-            <p class="s1">R$ 7,00</p>
+            <p class="s1">R$ '.number_format(floatval($objXml->valoresNfse->ValorIss), 2, ',','.').'</p>
         </td>
     </tr>
     <tr style="height:22pt">
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
-            <p class="s5">PIS: 0,000%</p>
+            <p class="s5">PIS: '.number_format((floatval($objXml->servico->Valores->ValorPis)/floatval($objXml->valoresNfse->BaseCalculo)*100), 4).'%</p>
+            <p class="s1">R$ '.number_format(floatval($objXml->servico->Valores->ValorPis), 2, ',','.').'</p>
+        </td>
+        <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
+            <p class="s5">COFINS: '.number_format((floatval($objXml->servico->Valores->ValorCofins)/floatval($objXml->valoresNfse->BaseCalculo)*100), 4).'%</p>
+            <p class="s1">R$ '.number_format(floatval($objXml->servico->Valores->ValorCofins), 2, ',','.').'</p>
+        </td>
+        <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
+            <p class="s5">INSS: 0.0000%</p>
             <p class="s1">R$ 0,00</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
-            <p class="s5">COFINS: 0,000%</p>
+            <p class="s5">IR: 0.0000%</p>
             <p class="s1">R$ 0,00</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
-            <p class="s5">INSS: 0,000%</p>
-            <p class="s1">R$ 0,00</p>
-        </td>
-        <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
-            <p class="s5">IR: 0,000%</p>
-            <p class="s1">R$ 0,00</p>
-        </td>
-        <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
-            <p class="s5">CSLL: 0,000%</p>
-            <p class="s1">R$ 0,00</p>
+            <p class="s5">CSLL: '.number_format((floatval($objXml->servico->Valores->ValorCsll)/floatval($objXml->valoresNfse->BaseCalculo)*100), 4).'%</p>
+            <p class="s1">R$ '.number_format(floatval($objXml->servico->Valores->ValorCsll), 2, ',','.').'</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;">
             <p class="s5">Outras Retenções:</p>
@@ -446,7 +470,7 @@ class Danfse extends Mpdf
             <p class="s4-sm">VALOR LÍQUIDO DA NOTA</p>
         </td>
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: right;">
-            <p class="s4">R$ 350,00</p>
+            <p class="s4">R$ '.number_format(floatval($objXml->valoresNfse->ValorLiquidoNfse), 2, ',','.').'</p>
         </td>
     </tr>
     <tr style="height:9pt">
@@ -457,7 +481,7 @@ class Danfse extends Mpdf
     <tr style="height:38pt">
         <td style="border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;" colspan="6">
             <p><br/></p>
-            <p class="s5-sm">Atividade: 1.07 - Suporte técnico em informática, inclusive instalação, configuração e manutenção de programas de computação e bancos de dados.</p>
+            <p class="s5-sm">Atividade: '.$objXml->servico->ItemListaServico.' - '.$this->GetItemServicoName($objXml->servico->ItemListaServico).'</p>
         </td>
     </tr>
     <tr style="height:12pt">
@@ -470,16 +494,16 @@ class Danfse extends Mpdf
             <table style="width: 100%">
                 <tr>
                     <td>
-                        <p class="s5">Mês de Competência: <b>05/2023 </b></p>
-                        <p class="s5">Recolhimento: <b>Sem Retenção </b></p>
-                        <p class="s5">CNAE: <b>9511800 Empresa Optante do Simples Nacional</b></p>
+                        <p class="s5">Mês de Competência: <b>'.date_format(new \DateTime($objXml->competencia), 'm-Y').'</b></p>
+                        <p class="s5">Recolhimento: <b>Sem Retenção</b></p>
+                        <p class="s5">Optante pelo Simples Nacional: <b>' .($objXml->optanteSimplesNacional == "1" ? "SIM" : "NÃO"). '</b></p>
                     </td>
                     <td>
-                        <p class="s5">Local do Recolhimento: <b>BLUMENAU/SC</b></p>
-                        <p class="s5">Tributação: <b>Microempresário e Empresade Pequeno Porte (ME EPP)</b></p>
+                        <p class="s5">Local do Recolhimento: <b>'.mb_strtoupper($cidade).'/'.$objXml->prestador->Endereco->Uf.'</b></p>
+                        <p class="s5">Tributação: <b>'.$objXml->regimeEspecialTributacao.'</b></p>
                     </td>
                     <td>
-                        <p class="s5">Data Geração: <b>26/05/2023 15:03:46</b></p>
+                        <p class="s5">Data Geração: <b>'.date_format(new \DateTime($objXml->dataEmissao), 'd/m/Y H:i:s').'</b></p>
                     </td>
                 </tr>
                 <tr>
@@ -503,7 +527,7 @@ class Danfse extends Mpdf
 <table style="border-collapse:collapse; margin-top:10pt">
     <tr style="height:93pt">
         <td style="width: 500px;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="6">
-            <p class="s5">Recebi(emos) de: CSX SOLUÇÕES LTDA</p>
+            <p class="s5">Recebi(emos) de: '.$objXml->prestador->RazaoSocial.'</p>
             <p class="s5">Os serviços constantes nesta Nota Fiscal de Serviços Eletrônica.</p>
             <p><br/></p>
             <table style="width: 100%">
@@ -521,16 +545,14 @@ class Danfse extends Mpdf
         </td>
         <td style="width: 250px;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt;text-align: center;vertical-align: middle" colspan="6">
             <p class="s5">NOTA FISCAL DE SERVIÇOS ELETRÔNICA</p>
-            <p class="s5">Número: 845</p>
+            <p class="s5">Número: '.$objXml->numero.'</p>
             <p class="s5">Certificação</p>
-            <p class="s5">AE5047425</p>
+            <p class="s5">'.$objXml->codigoVerificacao.'</p>
         </td>
     </tr>
 </table>
 </body>
-</html>
-';
-
+</html>';
 
         // Crie uma instância da classe Mpdf
         $mpdf = new Mpdf([
@@ -541,6 +563,20 @@ class Danfse extends Mpdf
         ]);
 
         $mpdf->autoPageBreak = false;
+        if($status == 'CANCELADA'){
+            $mpdf->AddPage();
+            $mpdf->SetXY(0, 0);
+            $mpdf->SetFillColor(255, 255, 255);
+            $mpdf->Cell(210, 297, '', 1, 0, 'C', 1);
+            $mpdf->SetFont('Arial', 'B', 80);
+            $mpdf->SetTextColor(255, 0, 0);
+            $mpdf->Rotate(-45);
+            $mpdf->SetXY(120, 20);
+            $mpdf->Cell(210, 297, 'CANCELADA', 0, 0, 'C');
+            $mpdf->Rotate(0);
+        }
+        $mpdf->SetXY(0, 0);
+
         // Adicione o conteúdo ao PDF
         $mpdf->WriteHTML($content);
 

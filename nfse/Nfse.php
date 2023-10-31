@@ -406,22 +406,24 @@ class Nfse extends DOMDocument
         $this->prestador = $this->dom->createElement($this->prefixoNfse.'Prestador');
 
         $cpfCnpj = $this->dom->createElement($this->prefixoNfse.'CpfCnpj');
-        if(isset($std->cnpj)){
+        if(strlen($std->cpfCnpj) == 14){
             $this->dom->addChild(
                 $cpfCnpj,
                 $this->prefixoNfse.'Cnpj',
-                $std->cnpj,
+                $std->cpfCnpj,
                 true,
-                'CNPJ do prestador de serviço'
+                'Cnpj do prestador do serviço'
             );
-        }elseif(isset($std->cpf)){
+        }elseif(strlen($std->cpf) == 11){
             $this->dom->addChild(
                 $cpfCnpj,
                 $this->prefixoNfse.'Cpf',
                 $std->cpf,
                 true,
-                'CPF do prestador de serviço'
+                'Cpf do prestador do serviço'
             );
+        }else{
+            throw new \Exception('Informe um CPF/CNPJ válido para o Tomador');
         }
         $this->dom->appChild($this->prestador, $cpfCnpj, 'Falta tag Prestador');
         $this->dom->addChild(
@@ -437,19 +439,19 @@ class Nfse extends DOMDocument
 
     public function tagTomador(stdClass $std): \DOMElement
     {
-        $this->tomador = $this->dom->createElement($this->prefixoNfse.'Tomador');
-        $this->identificacaoTomador = $this->dom->createElement($this->prefixoNfse.'identificacaoTomador');
+        $this->tomador = $this->dom->createElement($this->prefixoNfse . 'Tomador');
+        $identificacaoTomador = $this->dom->createElement($this->prefixoNfse . 'IdentificacaoTomador');
         $cpfCnpj = $this->dom->createElement($this->prefixoNfse.'CpfCnpj');
         //Adição das informações node CpfCnpj
-        if(isset($std->cnpj)){
+        if(strlen($std->cpfCnpj) > 11){
             $this->dom->addChild(
                 $cpfCnpj,
                 $this->prefixoNfse.'Cnpj',
-                $std->cnpj,
+                $std->cpfCnpj,
                 true,
                 'Cnpj do tomador do serviço'
             );
-        }elseif(isset($std->cpf)){
+        }elseif(strlen($std->cpf) == 11){
             $this->dom->addChild(
                 $cpfCnpj,
                 $this->prefixoNfse.'Cpf',
@@ -457,11 +459,25 @@ class Nfse extends DOMDocument
                 true,
                 'Cpf do tomador do serviço'
             );
+        }else{
+            throw new \Exception('Informe um CPF/CNPJ válido para o Tomador');
         }
-        $this->dom->appChild($this->identificacaoTomador, $cpfCnpj, 'Falta tag IdentificacaoTomador');
 
-        //Adição node CpfCnpj ao node Tomador
-        $this->dom->appChild($this->tomador, $this->identificacaoTomador, 'Falta tag Tomador');
+        //Adição node CpfCnpj ao node IdentificacaoTomador
+        $this->dom->appChild($identificacaoTomador, $cpfCnpj, 'Falta Tag IdentificacaoTomador');
+
+        //Adição node InscricaoMunicipal ao node IdentificacaoTomador
+        $this->dom->addChild(
+            $identificacaoTomador,
+            $this->prefixoNfse.'InscricaoMunicipal',
+            $std->inscricaoMunicipal,
+            true,
+            'Inscrição municipal do Tomador de serviço'
+        );
+
+        //Adição node IdentificacaoTomador ao node Tomador
+        $this->dom->appChild($this->tomador, $identificacaoTomador, 'Falta tag Tomador');
+
         $this->dom->addChild(
             $this->tomador,
             $this->prefixoNfse.'RazaoSocial',
