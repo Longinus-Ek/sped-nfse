@@ -481,7 +481,7 @@ class Nfse extends DOMDocument
         $this->dom->addChild(
             $this->tomador,
             $this->prefixoNfse.'RazaoSocial',
-            $std->razaosocial,
+            htmlspecialchars($std->razaosocial),
             true,
             'Razão Social tomador de serviço'
         );
