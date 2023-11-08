@@ -3,7 +3,7 @@
         'name' => 'sped/nfse',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f5cf14f2b2f02c7c15963bd7d9f69f2cf4e46f37',
+        'reference' => '985005eb1686b60f5ab2fda741a392551aa2d697',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,14 +11,12 @@
     ),
     'versions' => array(
         'bacon/bacon-qr-code' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '8eba389da071f396d71ddf034289093b9e4e9cae',
+            'pretty_version' => '2.0.8',
+            'version' => '2.0.8.0',
+            'reference' => '8674e51bb65af933a5ffaf1c308a660387c35c22',
             'type' => 'library',
             'install_path' => __DIR__ . '/../bacon/bacon-qr-code',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'dasprid/enum' => array(
@@ -31,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'mpdf/mpdf' => array(
-            'pretty_version' => 'v8.2.0',
-            'version' => '8.2.0.0',
-            'reference' => '170a236a588d177c2aa7447ce490a030ca68e6f4',
+            'pretty_version' => 'v8.2.2',
+            'version' => '8.2.2.0',
+            'reference' => '596a87b876d7793be7be060a8ac13424de120dd5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../mpdf/mpdf',
             'aliases' => array(),
@@ -60,7 +58,7 @@
         'myclabs/deep-copy' => array(
             'pretty_version' => '1.x-dev',
             'version' => '1.9999999.9999999.9999999-dev',
-            'reference' => 'f6f48cfecf52ab791fe18cc1b11d6345512dc4b8',
+            'reference' => '202aaf6b7c2e1e0a622b0298e9f3f537e4d84018',
             'type' => 'library',
             'install_path' => __DIR__ . '/../myclabs/deep-copy',
             'aliases' => array(),
@@ -109,7 +107,7 @@
         'sped/nfse' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f5cf14f2b2f02c7c15963bd7d9f69f2cf4e46f37',
+            'reference' => '985005eb1686b60f5ab2fda741a392551aa2d697',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

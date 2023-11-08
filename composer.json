@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "NFSePHP\\NFSe\\": "src"
+            "NFSePHP\\NFSe\\": "src/"
         }
     },
     "authors": [

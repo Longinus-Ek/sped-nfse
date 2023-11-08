@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9eeb3b572ac3bad69b27d420c2dd986",
+    "content-hash": "d1f11e19559cb66bff53dd2b8d8d7201",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
-            "version": "dev-master",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bacon/BaconQrCode.git",
-                "reference": "8eba389da071f396d71ddf034289093b9e4e9cae"
+                "reference": "8674e51bb65af933a5ffaf1c308a660387c35c22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/8eba389da071f396d71ddf034289093b9e4e9cae",
-                "reference": "8eba389da071f396d71ddf034289093b9e4e9cae",
+                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/8674e51bb65af933a5ffaf1c308a660387c35c22",
+                "reference": "8674e51bb65af933a5ffaf1c308a660387c35c22",
                 "shasum": ""
             },
             "require": {
@@ -34,7 +34,6 @@
             "suggest": {
                 "ext-imagick": "to generate QR code images"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -57,9 +56,9 @@
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "support": {
                 "issues": "https://github.com/Bacon/BaconQrCode/issues",
-                "source": "https://github.com/Bacon/BaconQrCode/tree/master"
+                "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.8"
             },
-            "time": "2023-09-05T17:03:14+00:00"
+            "time": "2022-12-07T17:46:57+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -113,16 +112,16 @@
         },
         {
             "name": "mpdf/mpdf",
-            "version": "v8.2.0",
+            "version": "v8.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "170a236a588d177c2aa7447ce490a030ca68e6f4"
+                "reference": "596a87b876d7793be7be060a8ac13424de120dd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/170a236a588d177c2aa7447ce490a030ca68e6f4",
-                "reference": "170a236a588d177c2aa7447ce490a030ca68e6f4",
+                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/596a87b876d7793be7be060a8ac13424de120dd5",
+                "reference": "596a87b876d7793be7be060a8ac13424de120dd5",
                 "shasum": ""
             },
             "require": {
@@ -132,7 +131,7 @@
                 "mpdf/psr-log-aware-trait": "^2.0 || ^3.0",
                 "myclabs/deep-copy": "^1.7",
                 "paragonie/random_compat": "^1.4|^2.0|^9.99.99",
-                "php": "^5.6 || ^7.0 || ~8.0.0 || ~8.1.0 || ~8.2.0",
+                "php": "^5.6 || ^7.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
                 "psr/http-message": "^1.0 || ^2.0",
                 "psr/log": "^1.0 || ^2.0 || ^3.0",
                 "setasign/fpdi": "^2.1"
@@ -190,7 +189,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-09-01T11:44:52+00:00"
+            "time": "2023-11-07T13:52:14+00:00"
         },
         {
             "name": "mpdf/psr-http-message-shim",
@@ -291,12 +290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "f6f48cfecf52ab791fe18cc1b11d6345512dc4b8"
+                "reference": "202aaf6b7c2e1e0a622b0298e9f3f537e4d84018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/f6f48cfecf52ab791fe18cc1b11d6345512dc4b8",
-                "reference": "f6f48cfecf52ab791fe18cc1b11d6345512dc4b8",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/202aaf6b7c2e1e0a622b0298e9f3f537e4d84018",
+                "reference": "202aaf6b7c2e1e0a622b0298e9f3f537e4d84018",
                 "shasum": ""
             },
             "require": {
@@ -344,7 +343,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-30T10:01:33+00:00"
+            "time": "2023-11-01T08:01:43+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -587,8 +586,10 @@
         "ext-openssl": "*",
         "ext-soap": "*",
         "ext-simplexml": "*",
-        "ext-libxml": "*"
+        "ext-libxml": "*",
+        "ext-exif": "*",
+        "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
