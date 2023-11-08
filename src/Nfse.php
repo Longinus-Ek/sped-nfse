@@ -14,8 +14,8 @@
 namespace NFSePHP\NFSe;
 
 use DOMDocument;
-use stdClass;
 use NFSePHP\NFSe\DOMtools as Dom;
+use stdClass;
 
 class Nfse extends DOMDocument
 {

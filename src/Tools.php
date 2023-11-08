@@ -4,10 +4,7 @@ namespace NFSePHP\NFSe;
 
 use DOMDocument;
 use DOMXPath;
-use Illuminate\Support\Facades\Storage;
-use InvalidArgumentException;
 use LucasArend\HttpFox\HttpFox;
-use NFePHP\DA\Legacy\Dom;
 use NFSePHP\NFSe\Util\Certificado;
 use NFSePHP\NFSe\Util\SignerNfse;
 use NFSePHP\NFSe\Util\validXml;

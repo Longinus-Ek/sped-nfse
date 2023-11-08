@@ -3,8 +3,6 @@
 namespace NFSePHP\NFSe\Util;
 
 use DOMDocument;
-use DOMElement;
-use DOMNode;
 
 class SignerNfse
 {

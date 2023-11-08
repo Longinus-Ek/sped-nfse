@@ -7,8 +7,6 @@ use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
 use DOMDocument;
-use Imagick;
-use ImagickDraw;
 use Mpdf\Mpdf;
 use Mpdf\MpdfException;
 use NFSePHP\NFSe\Traits\Getter;

@@ -1,21 +1,21 @@
 {
     "name": "sped/nfse",
     "description": "Pacote para emissão NFS-e!",
-    "type": "library",
     "homepage": "https://github.com/Longinus-Ek/sped-nfse",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "NFSePHP\\NFSe\\": "nfse"
+            "NFSePHP\\NFSe\\": "src"
         }
     },
     "authors": [
         {
             "name": "Érick Dias",
             "email": "derickbass4@gmail.com",
-            "homepage": "https://github.com/Longinus-Ek",
+            "homepage": "https://github.com/Longinus-Ek"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": ">=8.0",
         "mpdf/mpdf": "^8.1",
