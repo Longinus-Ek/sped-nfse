@@ -57,7 +57,7 @@ class ComposerStaticInite292237737aaac4186a2e66980e3112d
         ),
         'NFSePHP\\NFSe\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/nfse',
+            0 => '/src',
         ),
         'Mpdf\\PsrLogAwareTrait\\' => 
         array (

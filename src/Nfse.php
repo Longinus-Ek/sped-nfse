@@ -8,7 +8,7 @@
  * @category  API
  * @package   NFePHP\NFe\
  * @author    Erick Dias
- * @link      www.mudar.com.br
+ * @link      https://github.com/Longinus-Ek
  */
 
 namespace NFSePHP\NFSe;
