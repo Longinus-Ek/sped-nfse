@@ -2,6 +2,8 @@
 
 namespace NFSePHP\NFSe\Util;
 
+use stdClass;
+
 class Standardize
 {
     /**

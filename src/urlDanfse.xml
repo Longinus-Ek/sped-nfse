@@ -29,66 +29,166 @@
                 <HOM>http://wshomologacaoabrasf.simplissweb.com.br/nfseservice.svc?singleWsdl</HOM>
                 <PROD>http://wsblumenau.simplissweb.com.br/nfseservice.svc?wsdl</PROD>
                 <linkPDF>&lt;https://nfse.blumenau.sc.gov.br/contrib/app/nfse/relatorio?cnpj=CNPJEMITENTE&amp;ser=SERIENFSE&amp;inum=NUMNFSE&amp;icod=CODVERIFYNFSE&gt;</linkPDF>
-                    <LOTE>
-                        <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/RecepcionarLoteRps</soapAction>
-                        <CABECALHO>
-                            <HEADER>
-                                &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
-                                &lt;soapenv:Header/&gt;
-                                &lt;soapenv:Body&gt;
-                                &lt;sis:RecepcionarLoteRps&gt;
-                                &lt;sis:EnviarLoteRpsEnvio&gt;
-                            </HEADER>
-                            <FOOTER>
-                                &lt;/sis:EnviarLoteRpsEnvio&gt;
-                                &lt;/sis:RecepcionarLoteRps&gt;
-                                &lt;/soapenv:Body&gt;
-                                &lt;/soapenv:Envelope&gt;
-                            </FOOTER>
-                        </CABECALHO>
-                    </LOTE>
-                    <CONSULTA>
-                        <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/ConsultarLoteRps</soapAction>
-                        <CABECALHO>
-                            <HEADER>
-                                &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
-                                &lt;soapenv:Header/&gt;
-                                &lt;soapenv:Body&gt;
-                                &lt;sis:ConsultarLoteRps&gt;
-                                &lt;sis:ConsultarLoteRpsEnvio&gt;
-                            </HEADER>
-                            <FOOTER>
-                                &lt;/sis:ConsultarLoteRpsEnvio&gt;
-                                &lt;/sis:ConsultarLoteRps&gt;
-                                &lt;/soapenv:Body&gt;
-                                &lt;/soapenv:Envelope&gt;
-                            </FOOTER>
-                        </CABECALHO>
-                    </CONSULTA>
-                    <CANCELAR>
-                        <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/CancelarNfse</soapAction>
-                        <CABECALHO>
-                            <HEADER>
-                                &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
-                                &lt;soapenv:Header/&gt;
-                                &lt;soapenv:Body&gt;
-                                &lt;sis:CancelarNfse&gt;
-                                &lt;sis:CancelarNfseEnvio&gt;
-                            </HEADER>
-                            <FOOTER>
-                                &lt;/sis:CancelarNfseEnvio&gt;
-                                &lt;/sis:CancelarNfse&gt;
-                                &lt;/soapenv:Body&gt;
-                                &lt;/soapenv:Envelope&gt;
-                            </FOOTER>
-                        </CABECALHO>
-                    </CANCELAR>
+                <LOTE>
+                    <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/RecepcionarLoteRps</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
+                            &lt;soapenv:Header/&gt;
+                            &lt;soapenv:Body&gt;
+                            &lt;sis:RecepcionarLoteRps&gt;
+                            &lt;sis:EnviarLoteRpsEnvio&gt;
+                        </HEADER>
+                        <FOOTER>
+                            &lt;/sis:EnviarLoteRpsEnvio&gt;
+                            &lt;/sis:RecepcionarLoteRps&gt;
+                            &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </LOTE>
+                <CONSULTA>
+                    <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/ConsultarLoteRps</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
+                            &lt;soapenv:Header/&gt;
+                            &lt;soapenv:Body&gt;
+                            &lt;sis:ConsultarLoteRps&gt;
+                            &lt;sis:ConsultarLoteRpsEnvio&gt;
+                        </HEADER>
+                        <FOOTER>
+                            &lt;/sis:ConsultarLoteRpsEnvio&gt;
+                            &lt;/sis:ConsultarLoteRps&gt;
+                            &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </CONSULTA>
+                <CANCELAR>
+                    <soapAction>http://www.sistema.com.br/Sistema.Ws.Nfse/INfseService/CancelarNfse</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
+                            &lt;soapenv:Header/&gt;
+                            &lt;soapenv:Body&gt;
+                            &lt;sis:CancelarNfse&gt;
+                            &lt;sis:CancelarNfseEnvio&gt;
+                        </HEADER>
+                        <FOOTER>
+                            &lt;/sis:CancelarNfseEnvio&gt;
+                            &lt;/sis:CancelarNfse&gt;
+                            &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </CANCELAR>
             </BLUMENAU>
         </SC>
         <SE></SE>
         <SP></SP>
         <TO></TO>
     </SIMPLISS>
+    <BETA>
+        <AC></AC>
+        <AL></AL>
+        <AP></AP>
+        <AM></AM>
+        <BA></BA>
+        <CE></CE>
+        <DF></DF>
+        <ES></ES>
+        <GO></GO>
+        <MA></MA>
+        <MT></MT>
+        <MS></MS>
+        <MG></MG>
+        <PR></PR>
+        <PB></PB>
+        <PA></PA>
+        <PE></PE>
+        <PI></PI>
+        <RJ></RJ>
+        <RN></RN>
+        <RS></RS>
+        <RO></RO>
+        <RR></RR>
+        <SC>
+            <GASPAR>
+                <HOM>http://e-gov.betha.com.br/e-nota-contribuinte-test-ws/nfseWS?wsdl</HOM>
+                <PROD>http://e-gov.betha.com.br/e-nota-contribuinte-ws/nfseWS?wsdl</PROD>
+                <linkPDF>&lt;https://nfse.blumenau.sc.gov.br/contrib/app/nfse/relatorio?cnpj=CNPJEMITENTE&amp;ser=SERIENFSE&amp;inum=NUMNFSE&amp;icod=CODVERIFYNFSE&gt;</linkPDF>
+                <LOTE>
+                    <soapAction>RecepcionarLoteRpsSincronoEnvio</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                                &lt;soapenv:Header/&gt;
+                                &lt;soapenv:Body&gt;
+                                    &lt;e:RecepcionarLoteRpsSincrono&gt;
+                                        &lt;nfseCabecMsg&gt;
+                                                &lt;![CDATA[
+                                                 &lt;cabecalho xmlns="http://www.betha.com.br/e-nota-contribuinte-ws" versao="2.02"&gt;
+                                                     &lt;versaoDados&gt;2.02&lt;/versaoDados&gt;
+                                                 &lt;/cabecalho&gt;
+                                                ]]&gt;
+                                            &lt;/nfseCabecMsg&gt;
+                                            &lt;nfseDadosMsg&gt;
+                                            &lt;![CDATA[
+                                                &lt;EnviarLoteRpsSincronoEnvio xmlns = "http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                        </HEADER>
+                        <FOOTER>
+                                                &lt;/EnviarLoteRpsSincronoEnvio&gt;
+                                            ]]&gt;
+                                        &lt;/nfseDadosMsg&gt;
+                                    &lt;/e:RecepcionarLoteRpsSincrono&gt;
+                                &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </LOTE>
+                <CONSULTA>
+                    <soapAction>ConsultarLoteRpsEnvio</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
+                                &lt;soapenv:Header/&gt;
+                                &lt;soapenv:Body&gt;
+                                    &lt;sis:ConsultarLoteRps&gt;
+                                        &lt;sis:ConsultarLoteRpsEnvio&gt;
+                        </HEADER>
+                        <FOOTER>
+                                        &lt;/sis:ConsultarLoteRpsEnvio&gt;
+                                    &lt;/sis:ConsultarLoteRps&gt;
+                                &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </CONSULTA>
+                <CANCELAR>
+                    <soapAction>CancelarNfseEnvio</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
+                                &lt;soapenv:Header/&gt;
+                                &lt;soapenv:Body&gt;
+                                    &lt;sis:CancelarNfse&gt;
+                                        &lt;sis:CancelarNfseEnvio&gt;
+                        </HEADER>
+                        <FOOTER>
+                                        &lt;/sis:CancelarNfseEnvio&gt;
+                                    &lt;/sis:CancelarNfse&gt;
+                                &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </CANCELAR>
+            </GASPAR>
+        </SC>
+        <SE></SE>
+        <SP></SP>
+        <TO></TO>
+    </BETA>
 </CONTENTS>
 
 

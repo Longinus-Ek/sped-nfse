@@ -4,7 +4,10 @@ namespace NFSePHP\NFSe;
 
 use DOMDocument;
 use DOMXPath;
+use Illuminate\Support\Facades\Storage;
+use InvalidArgumentException;
 use LucasArend\HttpFox\HttpFox;
+use NFePHP\DA\Legacy\Dom;
 use NFSePHP\NFSe\Util\Certificado;
 use NFSePHP\NFSe\Util\SignerNfse;
 use NFSePHP\NFSe\Util\validXml;
@@ -98,11 +101,19 @@ class Tools
         }
     }
 
-    public function envioLoteRps($signedXML, array $options): string{
+    public function envioLoteRps($signedXML): string{
+        $options = [
+            'Content-Type: text/xml;charset="utf-8"',
+            'Accept: text/xml',
+            'Expect: 100-continue',
+            'Connection: Keep-Alive',
+        ];
         $infoHeader = $this->getCabecalho('LOTE');
         $soapAction = $this->getSoapAction('LOTE');
+        $signedXML .= '<assinar/>';
         $xmlFormatedString = validXml::formatXML($signedXML, $infoHeader);
         $xmlAssinado = $this->signLoteRps($xmlFormatedString);
+
         $xmlEnvio = new DOMDocument('1.0', 'UTF-8');
         $xmlEnvio->loadXML($xmlAssinado);
         $xmlEnvio->formatOutput = true;
@@ -111,9 +122,8 @@ class Tools
         $http->disableSSL();
         //$http->setProxy(); //Utilizado para depurar as requisições com o fiddler
         array_push($options, $soapAction);
-
         $http->setHeaders($options);
-
+        //dd($xmlEnvio->saveXML());
         $result = $http->sendPost($this->getUrlConnect(),$xmlEnvio->saveXML());
 
         return $result;
@@ -292,28 +302,11 @@ class Tools
         if(!$gerarAssinatura){
             throw new Exception('Falha na leitura do Certificado, senha incorreta!');
         }
-        $loadSign = new DOMDocument('1.0', 'UTF-8');
-        $loadSign->loadXML($gerarAssinatura);
+        $xml = preg_replace('/<assinar\/>/', $gerarAssinatura, $xml);
+
         $loadXml = new DOMDocument('1.0', 'UTF-8');
         $loadXml->loadXML($xml);
-        // Crie um objeto DOMXPath
-        $xpath = new DOMXPath($loadXml);
 
-        $xpath->registerNamespace('soapenv', 'http://schemas.xmlsoap.org/soap/envelope/');
-        $xpath->registerNamespace('sis', 'http://www.sistema.com.br/Sistema.Ws.Nfse');
-        $xpath->registerNamespace('nfse', 'http://www.abrasf.org.br/nfse.xsd');
-
-        $rps = $xpath->query('//nfse:Rps')->item(0);
-        $enviarLote = $xpath->query('//sis:EnviarLoteRpsEnvio')->item(0);
-        if($rps && $enviarLote){
-            $signatureRPS = $loadXml->importNode($loadSign->documentElement, true);
-            $rps->appendChild($signatureRPS);
-            $signatureEnviarLote = $loadXml->importNode($loadSign->documentElement, true);
-            $enviarLote->appendChild($signatureEnviarLote);
-            return $loadXml->saveXML();
-        }else {
-            throw new Exception('Falha ao assinar XML, biblioteca não identificou a estrutura do XML, contate o suporte!');
-        }
-
+        return $loadXml->saveXML();
     }
 }

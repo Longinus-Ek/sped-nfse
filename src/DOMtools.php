@@ -2,6 +2,8 @@
 
 namespace NFSePHP\NFSe;
 
+use DOMDocument;
+use DOMNode;
 use DOMElement;
 
 class DOMtools extends \DOMDocument

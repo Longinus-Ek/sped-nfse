@@ -8,14 +8,14 @@
  * @category  API
  * @package   NFePHP\NFe\
  * @author    Erick Dias
- * @link      https://github.com/Longinus-Ek
+ * @link      www.mudar.com.br
  */
 
 namespace NFSePHP\NFSe;
 
 use DOMDocument;
-use NFSePHP\NFSe\DOMtools as Dom;
 use stdClass;
+use NFSePHP\NFSe\DOMtools as Dom;
 
 class Nfse extends DOMDocument
 {
@@ -78,6 +78,11 @@ class Nfse extends DOMDocument
     protected string $prefixoNfse;
 
     /**
+     * @var string
+     */
+    protected string $cidadePrestador;
+
+    /**
      * Construtor recebe o objeto da nota fiscal com todas as informações e instancia um novo DOM Document
      * @param String $versao
      * @param String $charset
@@ -99,6 +104,9 @@ class Nfse extends DOMDocument
         $this->buildRps(false);
         //Adiciona node infDeclaracaoPrestacaoServico com id ao node Rps sem Id
         $this->dom->appChild($this->nfse, $this->infDeclaracaoPrestacaoServico, 'Falta tag "infDeclaracaoPrestacaoServico"');
+        $assinar = $this->dom->createElement('assinar');
+        //Adiciona tag location pra assinatura
+        $this->dom->appChild($this->nfse, $assinar, 'Falta tag "infDeclaracaoPrestacaoServico"');
         //Cria Node Lista Rps
         $ListaRps = $this->dom->createElement($this->prefixoNfse.'ListaRps');
         //Adiciona Node Rps sem id ao node ListaRps
@@ -208,6 +216,7 @@ class Nfse extends DOMDocument
     {
         $this->servico = $this->dom->createElement($this->prefixoNfse.'Servico');
         $valores = $this->dom->createElement($this->prefixoNfse.'Valores');
+        $this->cidadePrestador = $std->cidadePrestador;
         //Adiciona os nodes dentro do nove valores
         $this->dom->addChild(
             $valores,
@@ -265,21 +274,23 @@ class Nfse extends DOMDocument
             true,
             'Valor Outras retenções',
         );
-        $valorTotalTributos = $std->vDed +
-            $std->vPis +
-            $std->vCofins +
-            $std->vInss +
-            $std->vIr +
-            $std->vCsll +
-            $std->vOutrasRetencoes +
-            $std->vIss;
-        $this->dom->addChild(
-            $valores,
-            $this->prefixoNfse.'ValTotTributos',
-            $valorTotalTributos,
-            true,
-            'Valor Total dos tributos',
-        );
+        if($this->cidadePrestador !== "GASPAR"){
+            $valorTotalTributos = $std->vDed +
+                $std->vPis +
+                $std->vCofins +
+                $std->vInss +
+                $std->vIr +
+                $std->vCsll +
+                $std->vOutrasRetencoes +
+                $std->vIss;
+            $this->dom->addChild(
+                $valores,
+                $this->prefixoNfse.'ValTotTributos',
+                $valorTotalTributos,
+                true,
+                'Valor Total dos tributos',
+            );
+        }
         $this->dom->addChild(
             $valores,
             $this->prefixoNfse.'ValorIss',
@@ -383,13 +394,13 @@ class Nfse extends DOMDocument
             true,
             '1 – Exigível, 2 – Não Incidência, 3 – Isenção, 4 – Exportação, 5 – Imunidade, 6 – Exigibilidade suspensa por decisão judicial, 7 – Exigibilidade suspensa por processo administrativo'
         );
-        $this->dom->addChild(
+        /*$this->dom->addChild(
             $this->servico,
             $this->prefixoNfse.'OutrasInformacoes',
             $std->outrasInformacoes,
             true,
             'Outras informações do Serviço'
-        );
+        );*/
         $this->dom->addChild(
             $this->servico,
             $this->prefixoNfse.'MunicipioIncidencia',
