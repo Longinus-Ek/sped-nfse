@@ -89,7 +89,7 @@
         <SP></SP>
         <TO></TO>
     </SIMPLISS>
-    <BETA>
+    <BETA11>
         <AC></AC>
         <AL></AL>
         <AP></AP>
@@ -115,58 +115,63 @@
         <RR></RR>
         <SC>
             <GASPAR>
-                <HOM>http://e-gov.betha.com.br/e-nota-contribuinte-test-ws/nfseWS?wsdl</HOM>
-                <PROD>http://e-gov.betha.com.br/e-nota-contribuinte-ws/nfseWS?wsdl</PROD>
-                <linkPDF>&lt;https://nfse.blumenau.sc.gov.br/contrib/app/nfse/relatorio?cnpj=CNPJEMITENTE&amp;ser=SERIENFSE&amp;inum=NUMNFSE&amp;icod=CODVERIFYNFSE&gt;</linkPDF>
+                <HOM>false</HOM>
+                <PROD>false</PROD>
+                <linkPDF>&lt;https://grp.gaspar.sc.gov.br/grp/imprimeNfse?numeroNota=NUMNFSE&amp;numeroProtocolo=NUMPROT&gt;</linkPDF>
                 <LOTE>
-                    <soapAction>RecepcionarLoteRpsSincronoEnvio</soapAction>
+                    <HOM>https://nfsehml.gaspar.sc.gov.br/nfse/services/NFSEremessa?wsdl</HOM>
+                    <PROD>https://nfse.gaspar.sc.gov.br/nfse/services/NFSEremessa?wsdl</PROD>
+                    <soapAction>recepcionarLoteRps</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://server.nfse.thema.inf.br"&gt;
+                                &lt;SOAP-ENV:Body&gt;
+                                    &lt;ns1:recepcionarLoteRpsLimitado&gt;
+                                    &lt;ns1:xml&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;EnviarLoteRpsEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd"&gt;
+                        </HEADER>
+                        <FOOTER>
+                                        &lt;/EnviarLoteRpsEnvio&gt;]]&gt;&lt;/ns1:xml&gt;
+                                    &lt;/ns1:recepcionarLoteRpsLimitado&gt;
+                                &lt;/SOAP-ENV:Body&gt;
+                            &lt;/SOAP-ENV:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </LOTE>
+                <CONSULTA>
+                    <HOM>https://e-gov.betha.com.br/e-nota-contribuinte-test-ws/consultarLoteRps?wsdl</HOM>
+                    <PROD>https://e-gov.betha.com.br/e-nota-contribuinte-ws/consultarLoteRps?wsdl</PROD>
+                    <soapAction></soapAction>
                     <CABECALHO>
                         <HEADER>
                             &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
                                 &lt;soapenv:Header/&gt;
                                 &lt;soapenv:Body&gt;
-                                    &lt;e:RecepcionarLoteRpsSincrono&gt;
+                                    &lt;e:ConsultarLoteRps&gt;
                                         &lt;nfseCabecMsg&gt;
-                                                &lt;![CDATA[
-                                                 &lt;cabecalho xmlns="http://www.betha.com.br/e-nota-contribuinte-ws" versao="2.02"&gt;
-                                                     &lt;versaoDados&gt;2.02&lt;/versaoDados&gt;
-                                                 &lt;/cabecalho&gt;
-                                                ]]&gt;
-                                            &lt;/nfseCabecMsg&gt;
-                                            &lt;nfseDadosMsg&gt;
                                             &lt;![CDATA[
-                                                &lt;EnviarLoteRpsSincronoEnvio xmlns = "http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                                                 &lt;cabecalho xmlns="http://www.betha.com.br/e-nota-contribuinte-ws" versao="2.02"&gt;
+                                                    &lt;versaoDados&gt;2.02&lt;/versaoDados&gt;
+                                                &lt;/cabecalho&gt;
+                                            ]]&gt;
+                                        &lt;/nfseCabecMsg&gt;
+                                        &lt;nfseDadosMsg&gt;
+                                            &lt;![CDATA[
+                                                &lt;ConsultarLoteRpsEnvio xmlns="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
                         </HEADER>
                         <FOOTER>
-                                                &lt;/EnviarLoteRpsSincronoEnvio&gt;
+                                            &lt;/ConsultarLoteRpsEnvio&gt;
                                             ]]&gt;
                                         &lt;/nfseDadosMsg&gt;
-                                    &lt;/e:RecepcionarLoteRpsSincrono&gt;
-                                &lt;/soapenv:Body&gt;
-                            &lt;/soapenv:Envelope&gt;
-                        </FOOTER>
-                    </CABECALHO>
-                </LOTE>
-                <CONSULTA>
-                    <soapAction>ConsultarLoteRpsEnvio</soapAction>
-                    <CABECALHO>
-                        <HEADER>
-                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
-                                &lt;soapenv:Header/&gt;
-                                &lt;soapenv:Body&gt;
-                                    &lt;sis:ConsultarLoteRps&gt;
-                                        &lt;sis:ConsultarLoteRpsEnvio&gt;
-                        </HEADER>
-                        <FOOTER>
-                                        &lt;/sis:ConsultarLoteRpsEnvio&gt;
-                                    &lt;/sis:ConsultarLoteRps&gt;
+                                    &lt;/e:ConsultarLoteRps&gt;
                                 &lt;/soapenv:Body&gt;
                             &lt;/soapenv:Envelope&gt;
                         </FOOTER>
                     </CABECALHO>
                 </CONSULTA>
                 <CANCELAR>
-                    <soapAction>CancelarNfseEnvio</soapAction>
+                    <HOM>http://e-gov.betha.com.br/e-nota-contribuinte-test-ws/cancelarNfse?wsdl</HOM>
+                    <PROD>http://e-gov.betha.com.br/e-nota-contribuinte-ws/cancelarNfse?wsdl</PROD>
+                    <soapAction></soapAction>
                     <CABECALHO>
                         <HEADER>
                             &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sis="http://www.sistema.com.br/Sistema.Ws.Nfse" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"&gt;
@@ -188,7 +193,129 @@
         <SE></SE>
         <SP></SP>
         <TO></TO>
-    </BETA>
+    </BETA11>
+    <BETA2>
+        <AC></AC>
+        <AL></AL>
+        <AP></AP>
+        <AM></AM>
+        <BA></BA>
+        <CE></CE>
+        <DF></DF>
+        <ES></ES>
+        <GO></GO>
+        <MA></MA>
+        <MT></MT>
+        <MS></MS>
+        <MG></MG>
+        <PR></PR>
+        <PB></PB>
+        <PA></PA>
+        <PE></PE>
+        <PI></PI>
+        <RJ></RJ>
+        <RN></RN>
+        <RS></RS>
+        <RO></RO>
+        <RR></RR>
+        <SC>
+            <LAGES>
+                <HOM>http://e-gov.betha.com.br/e-nota-contribuinte-test-ws/nfseWS?wsdl</HOM>
+                <PROD>http://e-gov.betha.com.br/e-nota-contribuinte-ws/nfseWS?wsdl</PROD>
+                <linkPDF>&lt;https://grp.gaspar.sc.gov.br/grp/imprimeNfse?numeroNota=NUMNFSE&amp;numeroProtocolo=NUMPROT&gt;</linkPDF>
+                <LOTE>
+                    <soapAction>RecepcionarLoteRpsSincronoEnvio</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                                &lt;soapenv:Header/&gt;
+                                &lt;soapenv:Body&gt;
+                                    &lt;e:RecepcionarLoteRpsSincrono&gt;
+                                        &lt;nfseCabecMsg&gt;
+                                                &lt;![CDATA[
+                                                    &lt;cabecalho xmlns="http://www.betha.com.br/e-nota-contribuinte-ws" versao="2.02"&gt;
+                                                        &lt;versaoDados&gt;2.02&lt;/versaoDados&gt;
+                                                    &lt;/cabecalho&gt;
+                                                ]]&gt;
+                                            &lt;/nfseCabecMsg&gt;
+                                            &lt;nfseDadosMsg&gt;
+                                            &lt;![CDATA[
+                                                &lt;EnviarLoteRpsSincronoEnvio xmlns = "http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                        </HEADER>
+                        <FOOTER>
+                                                &lt;/EnviarLoteRpsSincronoEnvio&gt;
+                                            ]]&gt;
+                                        &lt;/nfseDadosMsg&gt;
+                                    &lt;/e:RecepcionarLoteRpsSincrono&gt;
+                                &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </LOTE>
+                <CONSULTA>
+                    <soapAction>ConsultarLoteRpsEnvio</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                                &lt;soapenv:Header/&gt;
+                                &lt;soapenv:Body&gt;
+                                    &lt;e:CancelarNfse&gt;
+                                        &lt;nfseCabecMsg&gt;
+                                            &lt;![CDATA[
+                                                 &lt;cabecalho xmlns="http://www.betha.com.br/e-nota-contribuinte-ws" versao="2.02"&gt;
+                                                    &lt;versaoDados&gt;2.02&lt;/versaoDados&gt;
+                                                &lt;/cabecalho&gt;
+                                            ]]&gt;
+                                        &lt;/nfseCabecMsg&gt;
+                                        &lt;nfseDadosMsg&gt;
+                                            &lt;![CDATA[
+                                                &lt;ConsultarLoteRpsEnvio xmlns="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                        </HEADER>
+                        <FOOTER>
+                                                &lt;/ConsultarLoteRpsEnvio&gt;
+                                            ]]&gt;
+                                        &lt;/nfseDadosMsg&gt;
+                                    &lt;/e:CancelarNfse&gt;
+                                &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </CONSULTA>
+                <CANCELAR>
+                    <soapAction>CancelarNfseEnvio</soapAction>
+                    <CABECALHO>
+                        <HEADER>
+                            &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                            &lt;soapenv:Header/&gt;
+                                &lt;soapenv:Body&gt;
+                                    &lt;e:ConsultarLoteRps&gt;
+                                        &lt;nfseCabecMsg&gt;
+                                            &lt;![CDATA[
+                                                &lt;cabecalho xmlns="http://www.betha.com.br/e-nota-contribuinte-ws" versao="2.02"&gt;
+                                                    &lt;versaoDados&gt;2.02&lt;/versaoDados&gt;
+                                                &lt;/cabecalho&gt;
+                                            ]]&gt;
+                                        &lt;/nfseCabecMsg&gt;
+                                        &lt;nfseDadosMsg&gt;
+                                            &lt;![CDATA[
+                                                &lt;CancelarNfseEnvio xmlns="http://www.betha.com.br/e-nota-contribuinte-ws"&gt;
+                        </HEADER>
+                        <FOOTER>
+                                            &lt;/CancelarNfseEnvio&gt;
+                                        ]]&gt;
+                                        &lt;/nfseDadosMsg&gt;
+                                    &lt;/e:ConsultarLoteRps&gt;
+                                &lt;/soapenv:Body&gt;
+                            &lt;/soapenv:Envelope&gt;
+                        </FOOTER>
+                    </CABECALHO>
+                </CANCELAR>
+            </LAGES>
+        </SC>
+        <SE></SE>
+        <SP></SP>
+        <TO></TO>
+    </BETA2>
 </CONTENTS>
 
 

@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "NFSePHP\\NFSe\\": "nfse"
+            "NFSePHP\\NFSe\\": "src/"
         }
     },
     "authors": [
@@ -27,6 +27,6 @@
         "ext-simplexml": "*",
         "ext-libxml": "*",
         "ext-exif": "*",
-        "ext-imagick": "*"
+        "ext-imagick": "*",
     }
 }

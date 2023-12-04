@@ -2,8 +2,6 @@
 
 namespace NFSePHP\NFSe;
 
-use DOMDocument;
-use DOMNode;
 use DOMElement;
 
 class DOMtools extends \DOMDocument
@@ -17,7 +15,7 @@ class DOMtools extends \DOMDocument
      * @param string $version
      * @param string $charset
      */
-    public function __construct($version = '1.0', $charset = 'utf-8')
+    public function __construct(string $version = '1.0', string $charset = 'utf-8')
     {
         parent::__construct($version, $charset);
         $this->formatOutput = false;

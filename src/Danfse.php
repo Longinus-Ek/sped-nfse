@@ -7,8 +7,6 @@ use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
 use DOMDocument;
-use Imagick;
-use ImagickDraw;
 use Mpdf\Mpdf;
 use Mpdf\MpdfException;
 use NFSePHP\NFSe\Traits\Getter;
@@ -34,18 +32,23 @@ class Danfse extends Mpdf
      * @var string $path
      */
     private string $path;
+    /**
+     * @var mixed
+     */
+    private mixed $protocolo;
 
     /**
      * Função organiza os dados instanciados para realizar todas as ações
      * @param $xml
      * @param $logo
      */
-    public function __construct($xml, $logo, $logoname, string $path)
+    public function __construct($xml, $logo, $logoname, $protocolo, string $path)
     {
         $this->xml = $xml;
         $this->logo = $logo;
         $this->logoname = $logoname;
         $this->path = $path;
+        $this->protocolo = $protocolo;
     }
 
     /**
@@ -124,6 +127,7 @@ class Danfse extends Mpdf
         $linkGeneratePdf = preg_replace('/SERIENFSE/', $objXml->rps->IdentificacaoRps->Serie, $linkGeneratePdf);
         $linkGeneratePdf = preg_replace('/NUMNFSE/', $objXml->numero, $linkGeneratePdf);
         $linkGeneratePdf = preg_replace('/CODVERIFYNFSE/', $objXml->codigoVerificacao, $linkGeneratePdf);
+        $linkGeneratePdf = preg_replace('/NUMPROT/', $this->protocolo, $linkGeneratePdf);
 
         $renderer = new ImageRenderer(
             new RendererStyle(400),
@@ -157,11 +161,6 @@ class Danfse extends Mpdf
             $objXml->servico->Valores->ValorCofins = 0;
         }
 
-        if(is_object($objXml->tomador->Endereco->Complemento)){
-            $complementoTomador = 'Não Informado';
-        }else {
-            $complementoTomador = $objXml->tomador->Endereco->Complemento;
-        }
 
         $documentoTomador = 'Não Informado';
         if(isset($objXml->tomador->IdentificacaoTomador->CpfCnpj->Cnpj)){
@@ -398,7 +397,7 @@ class Danfse extends Mpdf
                     </td>
                     <td style="text-align: right">
                         <p class="s5">N°: <b>'.$objXml->tomador->Endereco->Numero.'</b></p>
-                        <p class="s5">Complemento: <b>'.$complementoTomador.'</b></p>
+                        <p class="s5">Complemento: <b>'.mb_strtoupper($objXml->tomador->Endereco->Complemento).'</b></p>
                         <p class="s5">UF: <b>'.$objXml->tomador->Endereco->Uf.'</b> | CEP: <b>' . preg_replace('/^(\d{5})(\d{3})$/', '$1-$2', $objXml->tomador->Endereco->Cep) . '</b></p>
                         <p class="s5">Telefone: <b>'.(isset($objXml->tomador->Contato) ? $objXml->tomador->Contato->Telefone : 'Não Informado').'</b></p>
                         <p class="s5">E-mail: <b>'.(isset($objXml->tomador->Contato) ? $objXml->tomador->Contato->Email : 'Não Informado').'</b></p>
@@ -567,6 +566,8 @@ class Danfse extends Mpdf
 </table>
 </body>
 </html>';
+
+        // Crie uma instância da classe Mpdf
         $mpdf = new Mpdf([
             'margin_left' => 5,   // Margem esquerda em px
             'margin_right' => 5,  // Margem direita em px
@@ -589,6 +590,7 @@ class Danfse extends Mpdf
         }
         $mpdf->SetXY(0, 0);
 
+        // Adicione o conteúdo ao PDF
         $mpdf->WriteHTML($content);
 
         return $mpdf->Output($this->path, 'F');
@@ -598,13 +600,16 @@ class Danfse extends Mpdf
     private function xmlStringToObj($element)
     {
         $obj = new stdClass();
+
         if ($element->hasAttributes()) {
             foreach ($element->attributes as $attribute) {
                 $obj->{$attribute->name} = $attribute->value;
             }
         }
+
         if ($element->hasChildNodes()) {
             $textValue = '';
+
             foreach ($element->childNodes as $child) {
                 if ($child->nodeType === XML_TEXT_NODE) {
                     $textValue = trim($child->nodeValue);
@@ -623,10 +628,13 @@ class Danfse extends Mpdf
                     }
                 }
             }
+
             if ($textValue !== '') {
                 $obj = $textValue;
             }
         }
+
         return $obj;
     }
+
 }

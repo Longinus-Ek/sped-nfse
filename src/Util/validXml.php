@@ -17,10 +17,12 @@ class validXml
         $xmlLinhas = explode("\n", $xml);
         array_shift($xmlLinhas);
         $xmlSemCabecalho = implode("\n", $xmlLinhas);
+        $xmlSemCabecalho = $infoCabecalho->header.$xmlSemCabecalho.$infoCabecalho->footer;
+        $xmlSig = preg_replace('/>\s+</', '><', $xmlSemCabecalho);
+        $xmlSig = trim($xmlSig);
 
-        $xml =  $infoCabecalho->header.$xmlSemCabecalho.$infoCabecalho->footer;
-
-        return $xml;
+        return $xmlSig;
     }
+
 
 }
