@@ -1,5 +1,7 @@
+```
 $nfse = new Nfse('2.03', 'UTF-8');
 $nfse->definePrefixo("nfse:");
+```
 ```
 $std = new stdClass();
 $std->Id = '86';
