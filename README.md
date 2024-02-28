@@ -1,2 +1,2 @@
 # sped-nfse
-Biblioteca criada para emissão de nota fiscal de serviço (em desenvolvimento) 1
+Biblioteca criada para emissão de nota fiscal de serviço (em desenvolvimento)
