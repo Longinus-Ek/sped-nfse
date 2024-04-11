@@ -27,6 +27,6 @@
         "ext-simplexml": "*",
         "ext-libxml": "*",
         "ext-exif": "*",
-        "ext-imagick": "*",
+        "ext-imagick": "*"
     }
 }
