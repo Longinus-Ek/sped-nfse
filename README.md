@@ -154,4 +154,5 @@ $nfse = new Nfse('1.0', 'UTF-8', 'CIDADE');
                 $notaFiscal->pathXML = $filenameXML;
                 $notaFiscal->numNFSE = $tools->getNumeroFromXML($xmlConsultado);
                 $notaFiscal->save();
+            }
 ```
