@@ -1,0 +1,21 @@
+{
+    "name": "lucasarend/http-fox",
+    "description": "This pacote is basic to use curl",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LucasArend\\HttpFox\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Arend"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": ">=7.0",
+      "ext-curl": "*"
+    }
+}

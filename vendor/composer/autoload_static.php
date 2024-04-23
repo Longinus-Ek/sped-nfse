@@ -16,10 +16,6 @@ class ComposerStaticInit6991aeff05893356b96fd98f64dcc3cb
         array (
             'setasign\\Fpdi\\' => 14,
         ),
-        'R' => 
-        array (
-            'RobRichards\\XMLSecLibs\\' => 23,
-        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -34,6 +30,10 @@ class ComposerStaticInit6991aeff05893356b96fd98f64dcc3cb
             'Mpdf\\PsrLogAwareTrait\\' => 22,
             'Mpdf\\PsrHttpMessageShim\\' => 24,
             'Mpdf\\' => 5,
+        ),
+        'L' => 
+        array (
+            'LucasArend\\HttpFox\\' => 19,
         ),
         'D' => 
         array (
@@ -50,10 +50,6 @@ class ComposerStaticInit6991aeff05893356b96fd98f64dcc3cb
         'setasign\\Fpdi\\' => 
         array (
             0 => __DIR__ . '/..' . '/setasign/fpdi/src',
-        ),
-        'RobRichards\\XMLSecLibs\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/robrichards/xmlseclibs/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -78,6 +74,10 @@ class ComposerStaticInit6991aeff05893356b96fd98f64dcc3cb
         'Mpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
+        'LucasArend\\HttpFox\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lucasarend/http-fox/src',
         ),
         'DeepCopy\\' => 
         array (

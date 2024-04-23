@@ -15,7 +15,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/setasign/fpdi" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/robrichards/xmlseclibs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lucasarend/http-fox" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

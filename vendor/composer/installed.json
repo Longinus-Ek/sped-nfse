@@ -111,18 +111,62 @@
             "install-path": "../dasprid/enum"
         },
         {
-            "name": "mpdf/mpdf",
-            "version": "v8.2.2",
-            "version_normalized": "8.2.2.0",
+            "name": "lucasarend/http-fox",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "596a87b876d7793be7be060a8ac13424de120dd5"
+                "url": "https://github.com/LucsaArend/foxy-http.git",
+                "reference": "90d6ccdc6a2e14e893a9d49de3a3c348ac064a5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/596a87b876d7793be7be060a8ac13424de120dd5",
-                "reference": "596a87b876d7793be7be060a8ac13424de120dd5",
+                "url": "https://api.github.com/repos/LucsaArend/foxy-http/zipball/90d6ccdc6a2e14e893a9d49de3a3c348ac064a5d",
+                "reference": "90d6ccdc6a2e14e893a9d49de3a3c348ac064a5d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.0"
+            },
+            "time": "2024-04-08T20:08:32+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "LucasArend\\HttpFox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lucas Arend"
+                }
+            ],
+            "description": "This pacote is basic to use curl",
+            "support": {
+                "issues": "https://github.com/LucsaArend/foxy-http/issues",
+                "source": "https://github.com/LucsaArend/foxy-http/tree/v1.0.7"
+            },
+            "install-path": "../lucasarend/http-fox"
+        },
+        {
+            "name": "mpdf/mpdf",
+            "version": "dev-development",
+            "version_normalized": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpdf/mpdf.git",
+                "reference": "601b0ecf928b31e92dd04e67eca715231b458098"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/601b0ecf928b31e92dd04e67eca715231b458098",
+                "reference": "601b0ecf928b31e92dd04e67eca715231b458098",
                 "shasum": ""
             },
             "require": {
@@ -149,7 +193,8 @@
                 "ext-xml": "Needed mainly for SVG manipulation",
                 "ext-zlib": "Needed for compression of embedded resources, such as fonts"
             },
-            "time": "2023-11-07T13:52:14+00:00",
+            "time": "2024-04-10T07:31:39+00:00",
+            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -300,12 +345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "202aaf6b7c2e1e0a622b0298e9f3f537e4d84018"
+                "reference": "2f5294676c802a62b0549f6bc8983f14294ce369"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/202aaf6b7c2e1e0a622b0298e9f3f537e4d84018",
-                "reference": "202aaf6b7c2e1e0a622b0298e9f3f537e4d84018",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/2f5294676c802a62b0549f6bc8983f14294ce369",
+                "reference": "2f5294676c802a62b0549f6bc8983f14294ce369",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +366,7 @@
                 "phpspec/prophecy": "^1.10",
                 "phpunit/phpunit": "^7.5.20 || ^8.5.23 || ^9.5.13"
             },
-            "time": "2023-11-01T08:01:43+00:00",
+            "time": "2024-02-10T11:10:03+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -522,63 +567,18 @@
             "install-path": "../psr/log"
         },
         {
-            "name": "robrichards/xmlseclibs",
-            "version": "3.1.1",
-            "version_normalized": "3.1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/robrichards/xmlseclibs.git",
-                "reference": "f8f19e58f26cdb42c54b214ff8a820760292f8df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/robrichards/xmlseclibs/zipball/f8f19e58f26cdb42c54b214ff8a820760292f8df",
-                "reference": "f8f19e58f26cdb42c54b214ff8a820760292f8df",
-                "shasum": ""
-            },
-            "require": {
-                "ext-openssl": "*",
-                "php": ">= 5.4"
-            },
-            "time": "2020-09-05T13:00:25+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "RobRichards\\XMLSecLibs\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "A PHP library for XML Security",
-            "homepage": "https://github.com/robrichards/xmlseclibs",
-            "keywords": [
-                "security",
-                "signature",
-                "xml",
-                "xmldsig"
-            ],
-            "support": {
-                "issues": "https://github.com/robrichards/xmlseclibs/issues",
-                "source": "https://github.com/robrichards/xmlseclibs/tree/3.1.1"
-            },
-            "install-path": "../robrichards/xmlseclibs"
-        },
-        {
             "name": "setasign/fpdi",
-            "version": "v2.5.0",
-            "version_normalized": "2.5.0.0",
+            "version": "v2.6.0",
+            "version_normalized": "2.6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Setasign/FPDI.git",
-                "reference": "ecf0459643ec963febfb9a5d529dcd93656006a4"
+                "reference": "a6db878129ec6c7e141316ee71872923e7f1b7ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Setasign/FPDI/zipball/ecf0459643ec963febfb9a5d529dcd93656006a4",
-                "reference": "ecf0459643ec963febfb9a5d529dcd93656006a4",
+                "url": "https://api.github.com/repos/Setasign/FPDI/zipball/a6db878129ec6c7e141316ee71872923e7f1b7ad",
+                "reference": "a6db878129ec6c7e141316ee71872923e7f1b7ad",
                 "shasum": ""
             },
             "require": {
@@ -590,15 +590,15 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~5.7",
-                "setasign/fpdf": "~1.8",
-                "setasign/tfpdf": "~1.31",
+                "setasign/fpdf": "~1.8.6",
+                "setasign/tfpdf": "~1.33",
                 "squizlabs/php_codesniffer": "^3.5",
                 "tecnickcom/tcpdf": "~6.2"
             },
             "suggest": {
                 "setasign/fpdf": "FPDI will extend this class but as it is also possible to use TCPDF or tFPDF as an alternative. There's no fixed dependency configured."
             },
-            "time": "2023-09-28T10:46:27+00:00",
+            "time": "2023-12-11T16:03:32+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -631,7 +631,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Setasign/FPDI/issues",
-                "source": "https://github.com/Setasign/FPDI/tree/v2.5.0"
+                "source": "https://github.com/Setasign/FPDI/tree/v2.6.0"
             },
             "funding": [
                 {

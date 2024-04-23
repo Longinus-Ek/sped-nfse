@@ -7,13 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'setasign\\Fpdi\\' => array($vendorDir . '/setasign/fpdi/src'),
-    'RobRichards\\XMLSecLibs\\' => array($vendorDir . '/robrichards/xmlseclibs/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'NFSePHP\\NFSe\\' => array($baseDir . '/src'),
     'Mpdf\\PsrLogAwareTrait\\' => array($vendorDir . '/mpdf/psr-log-aware-trait/src'),
     'Mpdf\\PsrHttpMessageShim\\' => array($vendorDir . '/mpdf/psr-http-message-shim/src'),
     'Mpdf\\' => array($vendorDir . '/mpdf/mpdf/src'),
+    'LucasArend\\HttpFox\\' => array($vendorDir . '/lucasarend/http-fox/src'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'DASPRiD\\Enum\\' => array($vendorDir . '/dasprid/enum/src'),
     'BaconQrCode\\' => array($vendorDir . '/bacon/bacon-qr-code/src'),
